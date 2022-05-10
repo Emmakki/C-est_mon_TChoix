@@ -10,7 +10,7 @@ function choixDilemme (mode){
             var alea = Math.floor(Math.random()*total);
             console.log(alea);
 
-            console.log(dil[alea]);
+            return BDtoString(dil[alea]);
         })
     } if (mode == "difficile"){
         Dilemme.find(null, function (err, dil) {
@@ -25,7 +25,7 @@ function choixDilemme (mode){
             var alea = Math.floor(Math.random()*total);
             console.log(alea);
 
-            console.log(dil[alea]);
+            return BDtoString(dil[alea]);
         })
         
     } if (mode == "populaire"){
@@ -36,7 +36,7 @@ function choixDilemme (mode){
             var alea = Math.floor(Math.random()*total);
             console.log(alea);
 
-            console.log(dil[alea]);
+            return BDtoString(dil[alea]);
         })
         
     } else {
@@ -66,4 +66,9 @@ function AddDilemme (dile){
 //Pour séparer une chaine de caractère
 function SplitString (dile){
     return dile.split('|');
+}
+
+//Transformer la structure de la BD en chaine de caractère
+function BDtoString (dile){
+    return dile.choix1 + "|"+dile.choix2+"|"+dile.nbClique1+"|"+dile.nbClique2+"|"+dile.visible+"|"+dile.jaime;
 }
