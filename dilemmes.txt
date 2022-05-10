@@ -1,0 +1,1 @@
+Format: choix1|choix2|nbClique1|nbClique2|visible|jaime
