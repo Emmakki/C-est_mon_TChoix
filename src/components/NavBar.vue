@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <v-toolbar height="150" color="red accent-3">
+    <v-toolbar height="150" color="green lighten-2">
     <v-btn  text to="/" class="font-weight-light" id="transparant" height="150" width="150">
     <div id="img">
      <v-img alt="logo" height="150" max-width="150" src="../assets/TChoix.png" ></v-img>
@@ -9,7 +9,7 @@
      <v-spacer></v-spacer>
      <v-toolbar-title><p class="font-weight-black">C'est mon TChoix</p></v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn to="/propos" color="red accent-1" x-large rounded>Proposition</v-btn>
+      <v-btn to="/propos" color="green lighten-4" x-large rounded>Proposition</v-btn>
     </v-toolbar>
   </nav>
 </template>

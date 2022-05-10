@@ -1,5 +1,5 @@
 <template>
-  <v-footer color="red accent-3">
+  <v-footer color="green lighten-2">
 
   </v-footer>
 </template>
