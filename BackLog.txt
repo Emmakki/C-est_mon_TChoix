@@ -9,51 +9,56 @@ Réseaux sociaux
 Mode où tu dois trouver le plus choisi
 
 	A faire:
-- écrire des dilemme				5
+- écrire des dilemme			5
 
 FRONT:
-**- page index**				3 (Victor G)
-- page submit					3 (Paul)
-**- component bouton choix (txt; couleur)**	1 (Victor G)
-**- toolbar**					1 (Paul)
-- component bouton suivant j'aime		1 (Victor G)
-- component bouton suivant j'aime pas		1 (Victor G)	
-- component mode (txt)				1 (Max)
-- component logo: insta/FB/twitter		1/1/1 (Max)
+**- page index**				3 				(Victor G)
+- page submit					3 				(Paul) 1:++++
+**- component bouton choix (txt; couleur)**	1 	(Victor G)
+**- toolbar**					1 				(Paul) 1:++++
+- component bouton suivant j'aime		1 		(Victor G)
+- component bouton suivant j'aime pas		1 	(Victor G)	
+- component mode (txt)				1 			(Max) 1:++++
+- component logo: insta/FB/twitter		1/1/1 	(Max) 1:+++++(sauf insta)
 - Animation grossisement			3
 - affichage pourcentage				5
-- component boutonAremplir			1 (Paul)
-- component boutonSubmitChangementDePage	1 (Paul)
+- component boutonAremplir			1 			(Paul) 1:++++
+- component boutonSubmitChangementDePage	1 	(Paul) 1:++++
 - component boutonSubmitPush -> page dialogue	1
 - component boutonRetour			1
-- push dilemme					3
+- push dilemme						3
 **- recupérer un dilemme**			3
-- majClics					3 (Victor S)
-- majJ'aime					3
-- Création Object dilemme			1 (Victor S)					
-- calcul pourcentage				1 (Victor S)
-- compteurClient				3
-- envoieMode					3
+- majClics							3 			(Victor S) 1:++++
+- majJ'aime							3
+- Création Object dilemme			1 			(Victor S) 1:++++				
+- calcul pourcentage				1 			(Victor S) 1:++++
+- compteurClient					3
+- envoieMode						3
 
 BACK:
 BD
-- table BD: choix1/choix2/clique1/clique2/visible/j'aime		1 (Emma)
-**- choisir un dilemme (modeDeJeu)**					5 (Emma)
-- MAJtable								3
-- MAJmode								1
-- AjouterDilemme							1 (Emma)
-- StockerClient								1
-- Lire les dilemmes							3 
+- table BD: choix1/choix2/clique1/clique2/visible/j'aime 1 		(Emma) 1:++++
+**- choisir un dilemme (modeDeJeu)**					 5 		(Emma) 1:++++
+- MAJtable												 3		(Emma)
+- MAJmode												 1		(Emma)
+- AjouterDilemme										 1 		(Emma) 1:+++++
+- StockerClient											 1
+- Lire les dilemmes										 3 		(Emma)
 
 Socket
-**- EnvoyerDilemme**							3
-- RécevoirDilemme							1
-- RecevoirMode								1
+**- EnvoyerDilemme**									 3
+- RécevoirDilemme										 1
+- RecevoirMode											 1
 
-**- Detection nouveau client**						3					
-- se former sur socket IO 						8 (Salah)
+**- Detection nouveau client**							 3					
+- se former sur socket IO 								 8 		(Salah) 1:+++++	
 
 	Total: 81
 
 27 points par cycles (5 points par personnes)
 
+1er tour: 29
+Element dont on s'est rendu compte pendant le tour:
+	- couleur(green lighten 2 et 4 (81C784 et C8E6C9))/police pour la déco
+	- id pour socketIO -> fonctionnement avec un string
+	- serveur ébergeur qu'il faudra réfléchir
