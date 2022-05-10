@@ -9,7 +9,7 @@
       <v-stepper-step
         :complete="e1 > 1"
         step="1"
-      color="green lighten-4"
+      color="green lighten-1"
       >
         Nom/Prénom
       </v-stepper-step>
@@ -19,7 +19,7 @@
       <v-stepper-step
         :complete="e1 > 2"
         step="2"
-        color="green lighten-4"
+        color="green lighten-1"
       >
         Dilemme 1
       </v-stepper-step>
@@ -27,7 +27,7 @@
       <v-divider></v-divider>
 
       <v-stepper-step step="3"
-      color="green lighten-4">
+      color="green lighten-1">
         Dilemme 2
       </v-stepper-step>
     </v-stepper-header>
@@ -127,14 +127,11 @@
       </v-stepper-content>
     </v-stepper-items>
   </v-stepper>
-  <v-row
-    align="center"
-    justify="space-around"
-  >
-   <v-btn to="/" icon  color="green lighten-1">
+  <v-card height="150px" width="150px" class="mx-auto" flat>
+    <v-btn to="/" icon  color="green lighten-1" class="mx-14 my-15">
     <v-icon size="75px">mdi-home</v-icon>
   </v-btn>
-  </v-row>
+  </v-card>
 </div> 
 
 </template>
@@ -148,3 +145,9 @@
     },
   }
 </script>
+<style>
+
+.v-sheet.v-card {
+  border-radius: 10px;
+}
+</style>
