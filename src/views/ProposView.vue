@@ -1,6 +1,6 @@
 <template>
 <div>
-<v-btn color="success">Retour page d'accueil</v-btn>
+
   <v-stepper v-model="e1"
   width="600px"
   class="mx-auto my-12"
@@ -38,8 +38,9 @@
           class="mx-auto my-12"
           color="green lighten-4"
           height="170px"
-          width="500">   <v-form>
-    <v-container>
+          width="500">   
+          <v-form>
+            <v-container>
       
           <v-text-field
             v-model="first"
@@ -73,9 +74,7 @@
           height="200px"
         ><v-form v-model="valid">
                 <v-container>
-                 
-              
-                      <v-textarea
+      <v-textarea 
       background-color="green lighten-4"
       color="black"
       label="Proposition n°1"
@@ -128,7 +127,16 @@
       </v-stepper-content>
     </v-stepper-items>
   </v-stepper>
-</div>
+  <v-row
+    align="center"
+    justify="space-around"
+  >
+   <v-btn to="/" icon  color="green lighten-1">
+    <v-icon size="75px">mdi-home</v-icon>
+  </v-btn>
+  </v-row>
+</div> 
+
 </template>
 
 <script>
