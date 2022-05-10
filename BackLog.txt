@@ -8,50 +8,60 @@ Jauge pour choisir: aléa/les + dur/les + aimé
 Réseaux sociaux
 Mode où tu dois trouver le plus choisi
 
+** : important
+1/3/5/8 : difficulté
+(Prénom) : celui qui a fait la tâche
+fait1 : fait au 1er spring
+
+
 	A faire:
-- écrire des dilemme			5
+- écrire des dilemme				5
 
 FRONT:
-**- page index**				3 				(Victor G)
-- page submit					3 				(Paul) 1:++++
+**- page index**				3	(Victor G)
+- page submit					3	(Paul) fait1
 **- component bouton choix (txt; couleur)**	1 	(Victor G)
-**- toolbar**					1 				(Paul) 1:++++
-- component bouton suivant j'aime		1 		(Victor G)
+**- toolbar**					1	(Paul) fait1
+- component bouton suivant j'aime		1 	(Victor G)
 - component bouton suivant j'aime pas		1 	(Victor G)	
-- component mode (txt)				1 			(Max) 1:++++
-- component logo: insta/FB/twitter		1/1/1 	(Max) 1:+++++(sauf insta)
+- component mode (txt)				1 	(Max) fait1
+- component logo: insta/FB/twitter		1/1/1 	(Max) fait1(sauf insta)
 - Animation grossisement			3
 - affichage pourcentage				5
-- component boutonAremplir			1 			(Paul) 1:++++
-- component boutonSubmitChangementDePage	1 	(Paul) 1:++++
-- component boutonSubmitPush -> page dialogue	1
-- component boutonRetour			1
-- push dilemme						3
+- component boutonAremplir			1 	(Paul) fait1
+- component boutonSubmitChangementDePage	1 	(Paul) fait1
+- component boutonSubmitPush -> page dialogue	1	(Paul)
+- component boutonRetour			1	(Paul)
+- push dilemme					3	(Paul)
 **- recupérer un dilemme**			3
-- majClics							3 			(Victor S) 1:++++
-- majJ'aime							3
-- Création Object dilemme			1 			(Victor S) 1:++++				
-- calcul pourcentage				1 			(Victor S) 1:++++
-- compteurClient					3
-- envoieMode						3
+- majClics					3 	(Victor S) à relier à la machine
+- majJ'aime					3	(Victor S)
+- Création Object dilemme			1 	(Victor S) fait1				
+- calcul pourcentage				1 	(Victor S) fait1
+- compteurClient				3
+- envoieMode					3
+______ rajouter après______
+- changer l'icône et le titre			1	(Maxence)
 
 BACK:
 BD
-- table BD: choix1/choix2/clique1/clique2/visible/j'aime 1 		(Emma) 1:++++
-**- choisir un dilemme (modeDeJeu)**					 5 		(Emma) 1:++++
-- MAJtable												 3		(Emma)
-- MAJmode												 1		(Emma)
-- AjouterDilemme										 1 		(Emma) 1:+++++
-- StockerClient											 1
-- Lire les dilemmes										 3 		(Emma)
+- table BD: choix1/choix2/clique1/clique2/visible/j'aime 	1 	(Emma) fait1
+**- choisir un dilemme (modeDeJeu)**				5 	(Emma) fait1
+- MAJtable							3	(Emma)
+- MAJmode							1	(Emma)
+- AjouterDilemme						1 	(Emma) fait1
+- StockerClient							1
+- Lire les dilemmes						3 	(Emma)
 
 Socket
-**- EnvoyerDilemme**									 3
-- RécevoirDilemme										 1
-- RecevoirMode											 1
+**- EnvoyerDilemme**						3
+- RécevoirDilemme						1
+- RecevoirMode							1
+______ rajouter après______
+- liaison Serveur vers client					3	(Salah)
 
-**- Detection nouveau client**							 3					
-- se former sur socket IO 								 8 		(Salah) 1:+++++	
+**- Detection nouveau client**					3					
+- se former sur socket IO 					8 	(Salah) fait1
 
 	Total: 81
 
@@ -59,6 +69,11 @@ Socket
 
 1er tour: 29
 Element dont on s'est rendu compte pendant le tour:
-	- couleur(green lighten 2 et 4 (81C784 et C8E6C9))/police pour la déco
+	- couleur(green lighten 2 et 4 (81C784 et C8E6C9))
+	-police pour la déco 
+		@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Titillium+Web&display=swap');
+		.police-boutons {
+		  font-family: Roboto, Avenir, Helvetica, Arial, sans-serif;
+		}
 	- id pour socketIO -> fonctionnement avec un string
 	- serveur ébergeur qu'il faudra réfléchir
