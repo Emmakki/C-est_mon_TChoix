@@ -1,0 +1,59 @@
+	Fonctionnalités:
+
+Bonton choix1 -> affichage des pourcentages
+Bonton choix2 -> affichage des pourcentages
+Proposer un dilemme: submit
+Choix aime ou pas pour passer au suivant
+Jauge pour choisir: aléa/les + dur/les + aimé
+Réseaux sociaux
+Mode où tu dois trouver le plus choisi
+
+	A faire:
+- écrire des dilemme				5
+
+FRONT:
+**- page index**				3 (Victor G)
+- page submit					3 (Paul)
+**- component bouton choix (txt; couleur)**	1 (Victor G)
+**- toolbar**					1 (Paul)
+- component bouton suivant j'aime		1 (Victor G)
+- component bouton suivant j'aime pas		1 (Victor G)	
+- component mode (txt)				1 (Max)
+- component logo: insta/FB/twitter		1/1/1 (Max)
+- Animation grossisement			3
+- affichage pourcentage				5
+- component boutonAremplir			1 (Paul)
+- component boutonSubmitChangementDePage	1 (Paul)
+- component boutonSubmitPush -> page dialogue	1
+- component boutonRetour			1
+- push dilemme					3
+**- recupérer un dilemme**			3
+- majClics					3 (Victor S)
+- majJ'aime					3
+- Création Object dilemme			1 (Victor S)					
+- calcul pourcentage				1 (Victor S)
+- compteurClient				3
+- envoieMode					3
+
+BACK:
+BD
+- table BD: choix1/choix2/clique1/clique2/visible/j'aime		1 (Emma)
+**- choisir un dilemme (modeDeJeu)**					5 (Emma)
+- MAJtable								3
+- MAJmode								1
+- AjouterDilemme							1 (Emma)
+- StockerClient								1
+- Lire les dilemmes							3 
+
+Socket
+**- EnvoyerDilemme**							3
+- RécevoirDilemme							1
+- RecevoirMode								1
+
+**- Detection nouveau client**						3					
+- se former sur socket IO 						8 (Salah)
+
+	Total: 81
+
+27 points par cycles (5 points par personnes)
+
