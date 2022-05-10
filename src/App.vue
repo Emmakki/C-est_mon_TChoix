@@ -25,9 +25,3 @@ export default {
 }
 </script>
 
-<style lang="scss">
-main {
-  //background-image: url();
-  //background-size: cover;
-}
-</style>

@@ -1,4 +1,5 @@
 <template>
+<div>
 <v-btn color="success">Retour page d'accueil</v-btn>
   <v-stepper v-model="e1"
   width="600px"
@@ -127,7 +128,7 @@
       </v-stepper-content>
     </v-stepper-items>
   </v-stepper>
-  
+</div>
 </template>
 
 <script>
