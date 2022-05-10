@@ -2,46 +2,48 @@ const Dilemme = require('./model_dilemme.js');
 
 // récupérer un dilemme dans la base de donnée
 function choixDilemme (mode){
-    if (mode == "alea"){
-        Dilemme.find(null, function (err, dil) {
-            if (err) { throw err; }
+    Dilemme.find(null, function (err, dil) {
+        if (err) { throw err; }
+        if (mode == "alea"){
             var total = dil.length;
-            console.log(total);
+            //console.log(total);
             var alea = Math.floor(Math.random()*total);
-            console.log(alea);
+            //console.log(alea);
 
-            return BDtoString(dil[alea]);
-        })
-    } if (mode == "difficile"){
-        Dilemme.find(null, function (err, dil) {
-            if (err) { throw err; }
+            return BDtoString(dil[alea])
+            
+        } if (mode == "difficile"){
             var total = 0;
             for(i=0;i<dil.length;i++){
                 if(Math.abs(dil[i].nbClique1-dil[i].nbClique2)<10) {
                     total ++
                 }
             }
-            console.log(total);
+            //console.log(total);
             var alea = Math.floor(Math.random()*total);
-            console.log(alea);
+            //console.log(alea);
 
-            return BDtoString(dil[alea]);
-        })
-        
-    } if (mode == "populaire"){
-        Dilemme.find({"jaime": {"$gt" : 10}},function(err, dil){
-            if (err) { throw err; }
-            var total = dil.length;
-            console.log(total);
+            return BDtoString(dil[alea])
+
+        } if (mode == "populaire"){
+            var totj =0;
+            for(i=0;i<dil.length;i++){
+                totj = totj+dil[i].jaime;
+            }
+            total = 0;
+            for(i=0;i<dil.length;i++){
+                if(dil[i].jaime > 0.66*totj) {
+                    total ++
+                }
+            }
             var alea = Math.floor(Math.random()*total);
-            console.log(alea);
+            //console.log(alea);
 
-            return BDtoString(dil[alea]);
-        })
-        
-    } else {
-        console.log("Ce mode n'existe pas");
-    }
+            return BDtoString(dil[alea])
+        } else {
+            console.log("Ce mode n'existe pas");
+        }
+    })
 }
 
 //Ajouter un dilemme dans la BD
