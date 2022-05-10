@@ -13,6 +13,20 @@ function choixDilemme (mode){
             console.log(dil[alea]);
         })
     } if (mode == "difficile"){
+        Dilemme.find(null, function (err, dil) {
+            if (err) { throw err; }
+            var total = 0;
+            for(i=0;i<dil.length;i++){
+                if(Math.abs(dil[i].nbClique1-dil[i].nbClique2)<10) {
+                    total ++
+                }
+            }
+            console.log(total);
+            var alea = Math.floor(Math.random()*total);
+            console.log(alea);
+
+            console.log(dil[alea]);
+        })
         
     } if (mode == "populaire"){
         Dilemme.find({"jaime": {"$gt" : 10}},function(err, dil){
