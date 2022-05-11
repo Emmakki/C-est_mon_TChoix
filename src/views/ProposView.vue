@@ -147,7 +147,4 @@
 </script>
 <style>
 
-.v-sheet.v-card {
-  border-radius: 10px;
-}
 </style>

@@ -90,7 +90,4 @@
   border-radius: 9999px  ;
   overflow: hidden;
 }
-.v-sheet.v-card {
-  border-radius: 9999px;
-}
 </style>

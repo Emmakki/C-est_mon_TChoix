@@ -72,4 +72,5 @@ import BoutonMode from '@/components/BoutonMode.vue'
   width:100%
 }
 
+
 </style>
