@@ -39,7 +39,7 @@ io.on('connection', (socket) => {
 function choixDilemme (){
     Dilemme.find(null, function (err, dil) {
         if (err) { throw err; }
-        if (window.Mode == "alea"){
+        if (globalThis.Mode == "alea"){
             var total = dil.length;
             //console.log(total);
             var alea = Math.floor(Math.random()*total);
@@ -47,7 +47,7 @@ function choixDilemme (){
 
             return BDtoString(dil[alea])
 
-        } if (window.Mode == "difficile"){
+        } if (globalThis.Mode == "difficile"){
             var total = 0;
             for(i=0;i<dil.length;i++){
                 if(Math.abs(dil[i].nbClique1-dil[i].nbClique2)<10) {
@@ -60,7 +60,7 @@ function choixDilemme (){
 
             return BDtoString(dil[alea])
 
-        } if (window.Mode == "populaire"){
+        } if (globalThis.Mode == "populaire"){
             var totj =0;
             for(i=0;i<dil.length;i++){
                 totj = totj+dil[i].jaime;
@@ -103,20 +103,31 @@ function AddDilemme (dile){
 //Mise à jour d'un dilemme
 function UpdateDilemme (dile){
     d = SplitString(dile);
-    Dilemme.find({"choix1":d[0]},{"choix2":d[1]},function(err,dil){
-        if (err) { throw err; }
-        dil.nbClique1=parseInt(d[2]);
-        dil.nbClique2=parseInt(d[3]);
-        dil.visible=d[4];
-        dil.jaime=parseInt(d[5]);
-        dil.save();
-    })
+
+    Dilemme.updateOne({"choix1":d[0]},{nbClique1:parseInt(d[2])},function (err) {
+        if (err) {throw err;}
+        console.log('Update 1/4')
+    });
+    Dilemme.updateOne({"choix1":d[0]},{nbClique2:parseInt(d[3])},function (err) {
+        if (err) {throw err;}
+        console.log('Update 2/4')
+    });
+    Dilemme.updateOne({"choix1":d[0]},{visible:d[4]},function (err) {
+        if (err) {throw err;}
+        console.log('Update 3/4')
+    });
+    Dilemme.updateOne({"choix1":d[0]},{jaime:parseInt(d[5])},function (err) {
+        if (err) {throw err;}
+        console.log('Update 4/4')
+    });
+    
 }
 
 //Modifie la variable globale qui définie le mode de jeu
 function UpdateMode (mode){
-    if (mode != "alea" || mode != "difficile" || mode != "populaire"){
-        window.Mode = mode;
+    if (mode == "alea" || mode == "difficile" || mode == "populaire"){
+        globalThis.Mode = mode;
+        console.log(globalThis.Mode);
     } else {
         console.log("ce mode n'existe pas");
     }
