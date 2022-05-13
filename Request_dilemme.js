@@ -85,19 +85,28 @@ function choixDilemme (){
 function AddDilemme (dile){
     d = SplitString(dile);
 
-    const dil = new Dilemme ({
-        choix1:d[0], 
-        choix2:d[1],
-        nbClique1:parseInt(d[2]),
-        nbClique2:parseInt(d[3]),
-        visible:d[4],
-        jaime:parseInt(d[5]),
+    var j = Dilemme.find(null);
+    j.where('choix1',d[0]);
+    j.exec(function (err,dile){
+        if (err){throw err;}
+        if (dile.length == 0) {
+            const dil = new Dilemme ({
+                choix1:d[0], 
+                choix2:d[1],
+                nbClique1:parseInt(d[2]),
+                nbClique2:parseInt(d[3]),
+                visible:d[4],
+                jaime:parseInt(d[5]),
+            });
+            dil.save(function (err) {
+                if (err) {throw err;}
+                console.log('Dilemme ajouté')
+            });
+        }else {
+            console.log("Dilemme existe déjà");
+        }
     });
-    
-    dil.save(function (err) {
-        if (err) {throw err;}
-        console.log('Dilemme ajouté')
-    })
+
 }
 
 //Mise à jour d'un dilemme
