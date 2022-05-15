@@ -28,6 +28,7 @@ export default {
 <style lang="scss">
 .TITRE{
   font-size:5vw;
+  font-weight: bold;
 }
 #transparant::before {
    background-color: transparent !important;

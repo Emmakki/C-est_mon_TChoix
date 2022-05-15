@@ -1,6 +1,6 @@
 
-<template>
-  <div class="home margeHaut">
+<template >
+  <div class="homeMargeHaut">
     <v-row align = "center" justify = "center">
       <p id="titre" 
         class="text-center"
@@ -28,7 +28,7 @@
             :height="tailleBoutons.gauche"
             :width="tailleBoutons.longueur" 
             rounded
-            :style="{ 'background-color': hover ? 'red' : '#E57373' }"
+            :style="{ 'background-color': hover ? '#E57373' : 'red' }"
             class="boutonGauche"
             >
             Bouton de gauche
@@ -56,9 +56,42 @@
     <p id = "suivant"
       class = "text-center"
       v-show="!showTuPreferes">Noter pour passer au suivant</p>
+    
+    
     <div v-show="!showTuPreferes">
-      <icone-like/>
-    </div>
+      <div class="text-center" >
+        <v-btn
+            @click='clickLike()'
+            plain
+            icon
+            class="decalage-droite"
+            :ripple="false"
+            
+            
+            color = "green darken-1"
+        >
+            <v-icon size="60px">
+                mdi-thumb-down
+            </v-icon>
+        </v-btn>
+
+        <v-btn
+            @click='clickLike()'
+            plain
+            icon
+            class="decalage-gauche"
+            :ripple="false" 
+            
+            color = "green darken-1"
+        >
+            <v-icon size="60px">
+                mdi-thumb-up
+            </v-icon>
+        </v-btn>
+      </div>
+      
+      </div>
+
     <div align="center" class = "margeHaut at-bottom"> 
       <bouton-mode/>
     </div>
@@ -67,7 +100,6 @@
 
 <script>
 import BoutonMode from '@/components/BoutonMode.vue'
-import IconeLike from '@/components/IconeLike.vue'
 
   export default {
     data () {
@@ -86,21 +118,29 @@ import IconeLike from '@/components/IconeLike.vue'
       }
     },
     components: {
-      BoutonMode,IconeLike,
+      BoutonMode,
     },
     methods: {
       async clickBoutons () {
         this.tailleBoutons.gauche = this.tailleBoutonsResultats.gauche,
         this.tailleBoutons.droite = this.tailleBoutonsResultats.droite,
         this.showTuPreferes = false
+      },
+      async clickLike () {
+        this.tailleBoutons.gauche = this.tailleMax,
+        this.tailleBoutons.droite = this.tailleMax,
+        this.showTuPreferes = true
       }
     },
   }
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Titillium+Web&display=swap');
   #titre {
     font-size: 40px;
+    font-weight: bold;
+    
   }
   #suivant {
     font-size: 30px;
@@ -135,11 +175,31 @@ import IconeLike from '@/components/IconeLike.vue'
   .nouvelleTaille{
     height: 10vh;
   }
-.bloc { 
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  hyphens: auto;
-}
+  .bloc { 
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+  }
+  .homeMargeHaut {
+    background-color: rgb(217, 237, 227);
+  }
+  
+  .police-boutons {
+    font-family: Roboto, Avenir, Helvetica, Arial, sans-serif;
+  }
+  .couleur-bouton{
+    color: #00000000
+  }
+  .decalage-droite{
+    margin-right:3vw;
+  }
+  .decalage-gauche{
+    margin-left:3vw;
+  }
+  .rounded-card{
+    border-radius: 9999px  ;
+    overflow: hidden;
+  };
 
 </style>

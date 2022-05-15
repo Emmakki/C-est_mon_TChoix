@@ -1,11 +1,12 @@
 <template>
     <div class="text-center" >
         <v-btn
+            @click='clickLike()'
             plain
             icon
             class="decalage-droite"
             :ripple="false"
-            @click = "publierFacebook()"
+            
             
             color = "green darken-1"
         >
@@ -15,11 +16,12 @@
         </v-btn>
 
         <v-btn
+            
             plain
             icon
             class="decalage-gauche"
             :ripple="false" 
-            @click = "publierTwitter()"
+            
             color = "green darken-1"
         >
             <v-icon size="60px">
@@ -43,7 +45,10 @@
         },
         publierFacebook(){
             
-        }
+        },
+        async clickLike () {
+          this.showTuPreferes = true
+      },
     }
   }
 </script>
