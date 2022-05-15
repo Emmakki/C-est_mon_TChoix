@@ -1,6 +1,6 @@
 
-<template >
-  <div class="homeMargeHaut">
+<template>
+  <div class="home">
     <v-row align = "center" justify = "center">
       <p id="titre" 
         class="text-center"
@@ -93,7 +93,7 @@
       </div>
 
     <div align="center" class = "margeHaut at-bottom"> 
-      <bouton-mode/>
+      <bouton-mode v-on:mode='changerMode($event)'/>
     </div>
   </div>
 </template>
@@ -115,6 +115,7 @@ import BoutonMode from '@/components/BoutonMode.vue'
         },
         tailleMax : "45vh",
         showTuPreferes:true,
+        mode:"Aléatoire",
       }
     },
     components: {
@@ -130,7 +131,12 @@ import BoutonMode from '@/components/BoutonMode.vue'
         this.tailleBoutons.gauche = this.tailleMax,
         this.tailleBoutons.droite = this.tailleMax,
         this.showTuPreferes = true
+      },
+      changerMode(_mode){
+        this.mode=_mode,
+        console.log(this.mode)
       }
+
     },
   }
 </script>
@@ -181,8 +187,8 @@ import BoutonMode from '@/components/BoutonMode.vue'
     -ms-hyphens: auto;
     hyphens: auto;
   }
-  .homeMargeHaut {
-    background-color: rgb(217, 237, 227);
+  .home {
+    background-color: rgb(233, 255, 233) ;
   }
   
   .police-boutons {

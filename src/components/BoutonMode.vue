@@ -2,6 +2,7 @@
   <v-sheet
     width = 423px
     class="rounded-card"
+    
   >
   
     <v-card
@@ -66,7 +67,7 @@
     }),
     methods: {
       async choisirMode (mode) {
-        console.log("test",mode)
+        this.$emit("mode",mode)
       }
     },
   }
