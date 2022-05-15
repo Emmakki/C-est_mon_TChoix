@@ -3,52 +3,58 @@ var Mode = "alea";
 
 // récupérer un dilemme dans la base de donnée
 exports.choixDilemme = function(){
-    Dilemme.find(null, function (err, dil) {
-        if (err) { throw err; }
-        if (globalThis.Mode == "alea"){
-            var total = dil.length;
-            //console.log(total);
-            var alea = Math.floor(Math.random()*total);
-            //console.log(alea);
-
-            return BDtoString(dil[alea])
-
-        } if (globalThis.Mode == "difficile"){
-            var total = 0;
-            let tab = [];
-            for(i=0;i<dil.length;i++){
-                if(Math.abs(dil[i].nbClique1-dil[i].nbClique2)<10) {
-                    total ++
-                    tab.push(i);
-                }
-            }
-            //console.log(total);
-            var alea = Math.floor(Math.random()*total);
-            //console.log(dil[tab[alea]]);
-
-            return BDtoString(dil[tab[alea]])
-
-        } if (globalThis.Mode == "populaire"){
-            var totj =0;
-            let tab = [];
-            for(i=0;i<dil.length;i++){
-                totj = totj+dil[i].jaime;
-            }
-            total = 0;
-            for(i=0;i<dil.length;i++){
-                if(dil[i].jaime > 0.66*totj) {
-                    total ++
-                    tab.push(i);
-                }
-            }
-            var alea = Math.floor(Math.random()*total);
-            //console.log(alea);
-
-            return BDtoString(dil[tab[alea]]);
-        } else {
-            return "Ce mode n'existe pas";
-        }
-    })
+    return new Promise (function(resolve){
+        setTimeout(
+            ()=>{
+                Dilemme.find(null, function (err, dil) {
+                    if (err) { throw err; }
+                    if (globalThis.Mode == "alea"){
+                        var total = dil.length;
+                        //console.log(total);
+                        var alea = Math.floor(Math.random()*total);
+                        //console.log(alea);
+            
+                        resolve( BDtoString(dil[alea]));
+            
+                    } if (globalThis.Mode == "difficile"){
+                        var total = 0;
+                        let tab = [];
+                        for(i=0;i<dil.length;i++){
+                            if(Math.abs(dil[i].nbClique1-dil[i].nbClique2)<10) {
+                                total ++
+                                tab.push(i);
+                            }
+                        }
+                        //console.log(total);
+                        var alea = Math.floor(Math.random()*total);
+                        //console.log(dil[tab[alea]]);
+            
+                        resolve( BDtoString(dil[tab[alea]]));
+            
+                    } if (globalThis.Mode == "populaire"){
+                        var totj =0;
+                        let tab = [];
+                        for(i=0;i<dil.length;i++){
+                            totj = totj+dil[i].jaime;
+                        }
+                        total = 0;
+                        for(i=0;i<dil.length;i++){
+                            if(dil[i].jaime > 0.66*totj) {
+                                total ++
+                                tab.push(i);
+                            }
+                        }
+                        var alea = Math.floor(Math.random()*total);
+                        //console.log(alea);
+            
+                        resolve( BDtoString(dil[tab[alea]]));
+                    } else {
+                        resolve( "Ce mode n'existe pas");
+                    }
+                })     
+            } , 2000
+        );
+    });
 }
 
 //Ajouter un dilemme dans la BD
