@@ -10,6 +10,10 @@ io.on("connection", (socket) => {
   console.log("nouvelle connection")
   socket.on("test", (...args) => {
     console.log(socket.id,":",args)
+    
+    socket.emit("fromServer", ["Chien", "Chat"]);
+    console.log( "EMIT: fromServers");
+
   });
 });
 

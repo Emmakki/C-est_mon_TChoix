@@ -31,7 +31,7 @@
             :style="{ 'background-color': hover ? '#E57373' : 'red' }"
             class="boutonGauche"
             >
-            Bouton de gauche
+            {{ dilemme1 }}
         </v-btn>
       </v-hover>
     
@@ -48,7 +48,7 @@
           :style="{ 'background-color': hover ? 'blue' : '#42A5F5'}"
           class = "boutonDroite" 
         >
-            Bouton de droite
+            {{ dilemme2 }}
         </v-btn>
       </v-hover>
     </div>
@@ -120,6 +120,8 @@ const socket = io("ws://localhost:3000");
         mode:"",
         cote:"",
         avis:"",
+        dilemme1:"SFR",
+        dilemme2:"PFR",
       }
     },
     components: {
@@ -134,6 +136,9 @@ const socket = io("ws://localhost:3000");
         this.cote=cote;
         console.log(this.cote);
         socket.emit("test",this.cote);
+
+        
+        
       },
       async clickLike (avis) {
         this.tailleBoutons.gauche = this.tailleMax;
@@ -142,6 +147,14 @@ const socket = io("ws://localhost:3000");
         this.avis=avis;
         console.log(this.avis);
         socket.emit("test",this.avis);
+        socket.on("fromServer", (args) => {
+         console.log(socket.id,":",args)
+         this.dilemme1=args[0];
+         this.dilemme2=args[1];
+         console.log(args);
+         console.log(args[0]);
+         console.log(args[1]);
+        });
       },
       changerMode(_mode){
         this.mode=_mode;
