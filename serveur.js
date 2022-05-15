@@ -41,3 +41,6 @@ socket.on('chat message', (msg) => {
         console.log('listening on *:3000');
     });
   })
+
+Request.UpdateMode("alea");
+Request.choixDilemme().then(function(res){console.log(res)});
