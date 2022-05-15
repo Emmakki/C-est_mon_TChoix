@@ -1,42 +1,8 @@
 const Dilemme = require('./model_dilemme.js');
 var Mode = "alea";
 
-//socketIo
-const express = require('express');
-const app = express();
-const http = require('http');
-const server = http.createServer(app);
-const { Server } = require("socket.io");
-const io = new Server(server);
-
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
-});
-
-io.on('connection', (socket) => {
-    var myroom='';
-    console.log(socket.id );
-    socket.on('chat message', (msg) => {
-      myroom= msg;   
-      socket.join(msg);
-      console.log('nouveau connecté dans le ' + msg  );
-
-      
-    });
-
-    socket.on('ping', (msg) => { // type de message et contenue 
-        //io.sockets.in(myroom).emit('message', msg );   // fonction appeler ensuite
-        
-        console.log("ping recu");
-
-      });
-
-    server.listen(3000, () => {
-        console.log('listening on *:3000');
-      });
-
 // récupérer un dilemme dans la base de donnée
-function choixDilemme (){
+exports.choixDilemme = function(){
     Dilemme.find(null, function (err, dil) {
         if (err) { throw err; }
         if (globalThis.Mode == "alea"){
@@ -86,7 +52,7 @@ function choixDilemme (){
 }
 
 //Ajouter un dilemme dans la BD
-function AddDilemme (dilemme){
+exports.AddDilemme = function(dilemme){
     d = SplitString(dilemme);
     //console.log(d);
 
@@ -116,7 +82,7 @@ function AddDilemme (dilemme){
 }
 
 //Mise à jour d'un dilemme
-function UpdateDilemme (dile){
+exports.UpdateDilemme = function(dile){
     d = SplitString(dile);
 
     Dilemme.updateOne({"choix1":d[0]},{nbClique1:parseInt(d[2])},function (err) {
@@ -139,7 +105,7 @@ function UpdateDilemme (dile){
 }
 
 //Modifie la variable globale qui définie le mode de jeu
-function UpdateMode (mode){
+exports.UpdateMode = function(mode){
     if (mode == "alea" || mode == "difficile" || mode == "populaire"){
         globalThis.Mode = mode;
         console.log(globalThis.Mode);
@@ -149,7 +115,7 @@ function UpdateMode (mode){
 }
 
 //Ajoute dans la base de donnée des dilemmes depuis un fichier texte formaté
-function lectureDilemme (fichiertexte){
+exports.lectureDilemme = function(fichiertexte){
     const readLine = require('readline');
     const f = require('fs');
     var file = fichiertexte;
@@ -160,7 +126,7 @@ function lectureDilemme (fichiertexte){
     });
     rl.on('line', function (text) {
         console.log(text);
-        AddDilemme(text);
+        exports.AddDilemme(text);
     });
 }
 
