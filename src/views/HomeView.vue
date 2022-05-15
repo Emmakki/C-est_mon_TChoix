@@ -22,7 +22,7 @@
       <v-hover
         v-slot="{ hover }"
       >
-        <v-btn @click='clickBoutons()'
+        <v-btn @click='clickBoutons("gauche")'
             :elevation="hover ? 10 : 4"
             :class="{ 'on-hover': hover }"
             :height="tailleBoutons.gauche"
@@ -39,7 +39,7 @@
         v-slot="{ hover }"
       >
         <v-btn 
-          @click='clickBoutons()'
+          @click='clickBoutons("droit")'
           :elevation="hover ? 10 : 4"
           :class="{ 'on-hover': hover }"
           :height="tailleBoutons.droite"
@@ -61,7 +61,7 @@
     <div v-show="!showTuPreferes">
       <div class="text-center" >
         <v-btn
-            @click='clickLike()'
+            @click='clickLike("dislike")'
             plain
             icon
             class="decalage-droite"
@@ -76,7 +76,7 @@
         </v-btn>
 
         <v-btn
-            @click='clickLike()'
+            @click='clickLike("like")'
             plain
             icon
             class="decalage-gauche"
@@ -100,6 +100,8 @@
 
 <script>
 import BoutonMode from '@/components/BoutonMode.vue'
+import { io } from "socket.io-client";
+const socket = io("ws://localhost:3000");
 
   export default {
     data () {
@@ -115,29 +117,40 @@ import BoutonMode from '@/components/BoutonMode.vue'
         },
         tailleMax : "45vh",
         showTuPreferes:true,
-        mode:"Aléatoire",
+        mode:"",
+        cote:"",
+        avis:"",
       }
     },
     components: {
       BoutonMode,
     },
     methods: {
-      async clickBoutons () {
-        this.tailleBoutons.gauche = this.tailleBoutonsResultats.gauche,
-        this.tailleBoutons.droite = this.tailleBoutonsResultats.droite,
-        this.showTuPreferes = false
+      
+      async clickBoutons (cote) {
+        this.tailleBoutons.gauche = this.tailleBoutonsResultats.gauche;
+        this.tailleBoutons.droite = this.tailleBoutonsResultats.droite;
+        this.showTuPreferes = false;
+        this.cote=cote;
+        console.log(this.cote);
+        socket.emit("test",this.cote);
       },
-      async clickLike () {
-        this.tailleBoutons.gauche = this.tailleMax,
-        this.tailleBoutons.droite = this.tailleMax,
-        this.showTuPreferes = true
+      async clickLike (avis) {
+        this.tailleBoutons.gauche = this.tailleMax;
+        this.tailleBoutons.droite = this.tailleMax;
+        this.showTuPreferes = true;
+        this.avis=avis;
+        console.log(this.avis);
+        socket.emit("test",this.avis);
       },
       changerMode(_mode){
-        this.mode=_mode,
-        console.log(this.mode)
-      }
+        this.mode=_mode;
+        console.log(this.mode);
+        socket.emit("test",this.mode);
+      },
 
     },
+    
   }
 </script>
 
