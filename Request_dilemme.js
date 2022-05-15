@@ -82,22 +82,24 @@ function choixDilemme (){
 }
 
 //Ajouter un dilemme dans la BD
-function AddDilemme (dile){
-    d = SplitString(dile);
+function AddDilemme (dilemme){
+    d = SplitString(dilemme);
+    //console.log(d);
+
+    const dil = new Dilemme ({
+        choix1:d[0], 
+        choix2:d[1],
+        nbClique1:parseInt(d[2]),
+        nbClique2:parseInt(d[3]),
+        visible:d[4],
+        jaime:parseInt(d[5]),
+    });
 
     var j = Dilemme.find(null);
     j.where('choix1',d[0]);
     j.exec(function (err,dile){
         if (err){throw err;}
-        if (dile.length == 0) {
-            const dil = new Dilemme ({
-                choix1:d[0], 
-                choix2:d[1],
-                nbClique1:parseInt(d[2]),
-                nbClique2:parseInt(d[3]),
-                visible:d[4],
-                jaime:parseInt(d[5]),
-            });
+        if (dile.length == 0) {  
             dil.save(function (err) {
                 if (err) {throw err;}
                 console.log('Dilemme ajouté')
