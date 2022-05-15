@@ -49,19 +49,22 @@ function choixDilemme (){
 
         } if (globalThis.Mode == "difficile"){
             var total = 0;
+            let tab = [];
             for(i=0;i<dil.length;i++){
                 if(Math.abs(dil[i].nbClique1-dil[i].nbClique2)<10) {
                     total ++
+                    tab.push(i);
                 }
             }
             //console.log(total);
             var alea = Math.floor(Math.random()*total);
-            //console.log(alea);
+            //console.log(dil[tab[alea]]);
 
-            return BDtoString(dil[alea])
+            return BDtoString(dil[tab[alea]])
 
         } if (globalThis.Mode == "populaire"){
             var totj =0;
+            let tab = [];
             for(i=0;i<dil.length;i++){
                 totj = totj+dil[i].jaime;
             }
@@ -69,14 +72,15 @@ function choixDilemme (){
             for(i=0;i<dil.length;i++){
                 if(dil[i].jaime > 0.66*totj) {
                     total ++
+                    tab.push(i);
                 }
             }
             var alea = Math.floor(Math.random()*total);
             //console.log(alea);
 
-            return BDtoString(dil[alea])
+            return BDtoString(dil[tab[alea]]);
         } else {
-            console.log("Ce mode n'existe pas");
+            return "Ce mode n'existe pas";
         }
     })
 }
