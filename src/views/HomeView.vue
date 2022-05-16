@@ -161,6 +161,9 @@ const socket = io("ws://localhost:3000");
         console.log(this.mode);
         socket.emit("test",this.mode);
       },
+      destroyed(){
+        socket.off("disconnect");
+      }
 
     },
     

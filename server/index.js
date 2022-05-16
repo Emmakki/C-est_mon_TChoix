@@ -7,13 +7,16 @@ const io = require("socket.io")(httpServer, {
 
 io.on("connection", (socket) => {
   // réception d'un message envoyé par le client
-  console.log("nouvelle connection")
+  console.log("nouvelle connexion")
   socket.on("test", (...args) => {
     console.log(socket.id,":",args)
     
     socket.emit("fromServer", ["Chien", "Chat"]);
-    console.log( "EMIT: fromServers");
 
+  });
+
+  socket.on("disconnect",()=>{
+    console.log("déconnexion", socket.id);
   });
 });
 
