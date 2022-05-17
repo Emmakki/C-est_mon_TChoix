@@ -29,6 +29,7 @@
             icon
             class="marge-gauche marge-droite"
             :ripple="false" 
+            @click = "publierInstagram()"
         >
 
             <v-icon size="24px">
@@ -57,6 +58,9 @@
         },
         publierFacebook(){
             window.location.href = "https://www.facebook.com/dialog/share?app_id=184484190795&channel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df2a0d48b428d6c%26domain%3Dwww.fbrell.com%26is_canvas%3Dfalse%26origin%3Dhttp%253A%252F%252Fwww.fbrell.com%252Ff1aa8bc6aaebf34%26relation%3Dopener&display=popup&e2e=%7B%7D&fallback_redirect_uri=http%3A%2F%2Fwww.fbrell.com%2FSharing%2F2%2520-%2520FB.ui%2520Dialogs%3Ffbclid%3DIwAR1whirAHKjI-rInAcqMzsXTBaIbxcvGtUfgqoiYWWq91zSDg0o3QYUYHEI&href=http%3A%2F%2F192.168.43.222%3A8080%2F&locale=en_US&next=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df1ad531e1109e4%26domain%3Dwww.fbrell.com%26is_canvas%3Dfalse%26origin%3Dhttp%253A%252F%252Fwww.fbrell.com%252Ff1aa8bc6aaebf34%26relation%3Dopener%26frame%3Df1dd4a05b58e14c%26result%3D%2522xxRESULTTOKENxx%2522&sdk=joey"
+        },
+        publierInstagram(){
+            window.location.href = "https://www.instagram.com/tcinsalyon/?hl=fr"
         }
     }
   }
@@ -77,7 +81,7 @@
   margin-left:0.5em;
 }
 .rounded-card{
-  border-radius: 9999px  ;
+  border-radius: 9999px;
   overflow: hidden;
 };
 </style>
