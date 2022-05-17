@@ -94,7 +94,7 @@
       
     </div>
 
-    <div align="center" class = "margeHaut at-bottom home"> 
+    <div align="center" class = "margeHaut at-bottom"> 
       <bouton-mode v-on:mode='changerMode($event)'/>
     </div>
   </div>

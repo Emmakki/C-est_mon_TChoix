@@ -116,9 +116,15 @@
 
         <v-btn
           color="green lighten-4"
+          @click="snackbar = true"
         >
           Valider
         </v-btn>
+        <v-snackbar
+            v-model="snackbar"
+           :timeout="timeout">
+           Proposition bien envoyée!
+        </v-snackbar>
 
         <v-btn text
         @click="e1 = 2">
@@ -138,12 +144,12 @@
 
 <script>
   export default {
-    data () {
-      return {
+      data: () => ({
+        snackbar: false,
         e1: 1,
-      }
-    },
-  }
+        timeout: 2000,
+      }),
+    }
 </script>
 <style>
 .home {

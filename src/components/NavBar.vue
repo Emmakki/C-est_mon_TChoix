@@ -1,6 +1,6 @@
 <template>
   <nav>
-  <header style="margin-bottom:10px;" >
+  <header>
     <v-toolbar height="140" color="green lighten-2">
     <v-btn  text to="/" class="font-weight-light" id="transparant" height="150" width="150">
     <div>
