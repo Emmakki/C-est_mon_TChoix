@@ -43,6 +43,7 @@ FRONT:
 ______ rajouter après______
 - changer l'icône et le titre			1	(Maxence) fait2
 - stringify					1       
+- taille txt dans les v-btn			1
 
 BACK:
 BD
@@ -53,6 +54,7 @@ BD
 - AjouterDilemme						1 	(Emma) fait1
 - StockerClient							1
 - Lire les dilemmes						3 	(Emma)
+- pb premier dilemme						3
 
 Socket
 **- EnvoyerDilemme**						3	(Maxence/Victor) fait3
