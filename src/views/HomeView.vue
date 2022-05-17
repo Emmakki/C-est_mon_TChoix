@@ -135,7 +135,7 @@ const socket = io("ws://localhost:3000");
         this.showTuPreferes = false;
         this.cote=cote;
         console.log(this.cote);
-        socket.emit("test",this.cote);
+       socket.emit("test",this.cote);
 
         
         
@@ -159,7 +159,7 @@ const socket = io("ws://localhost:3000");
       changerMode(_mode){
         this.mode=_mode;
         console.log(this.mode);
-        socket.emit("test",this.mode);
+       socket.emit("test",this.mode);
       },
 
     },
