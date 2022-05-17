@@ -1,1 +1,22 @@
 Format: choix1|choix2|nbClique1|nbClique2|visible|jaime
+jamais redoubler et être au chomage pendant 2 ans |redoubler 3x mais trouver du travail dans une grande entreprise|0|0|True|0
+babyfoot|billard|0|0|True|0
+tricher en WEB mais personne le sait|ne pas tricher en WEB mais tout le monde pense que tu as triché|0|0|True|0
+Avoir une personne qui t'aime jusqu'a la fin de ta vie|Aimer quelqu'un jusqu'a la fin de ta vie|0|0|True|0
+avoir un metier qui te plait et etre payé le smic|avoir un metier qui te plait pas et etre bien payé|0|0|True|0
+le wifi|la wifi|0|0|True|0
+Claire|Salma|0|0|True|0
+Linux|Windows|0|0|True|0
+t'appeler Gérard Menjoui|t'appeler Alban Bou|0|0|True|0
+vivre|mourir|0|0|True|0
+être comme vous êtes maintenant|avoir 100 millions de dollars, mais avoir 2% de chances de mourir instantanément chaque jour|0|0|True|0
+mourir brulé|mourir noyé|0|0|True|0
+changer le futur|changer le passé|0|0|True|0
+parler toutes les langues|parler aux animaux|0|0|True|0
+avoir une courtepaille|avoir une grosse frite|0|0|True|0
+etre la plus belle personne du monde|sortir avec la plus belle personne du monde|0|0|True|0
+etre sans jambes|etre sans bras|0|0|True|0
+reflechir lentement mais faire tout le reste rapidement|reflechir rapidement mais faire tout le reste lentement|0|0|True|0
+été|hiver|0|0|True|0
+etre premier des plus nuls|etre le plus nul des premier|0|0|True|0
+voir tout tes amis|etre le premier des tes amis à mourir|0|0|True|0
