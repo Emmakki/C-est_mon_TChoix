@@ -10,11 +10,11 @@
       <p id="titre" 
         class="text-center margePourcentageGauche"
         v-show="!showTuPreferes">
-          <strong>30%</strong>
+          <strong>{{pourcentageGauche}}</strong>
       </p>  
       <p id="titre" 
         class="text-center margePourcentageDroite"
-        v-show="!showTuPreferes"><v-spacer></v-spacer> <strong>70%</strong>
+        v-show="!showTuPreferes"><v-spacer></v-spacer> <strong>{{pourcentageDroite}}</strong>
       </p>
     </v-row>
     <v-spacer></v-spacer> 
@@ -32,7 +32,9 @@
             class="boutonGauche"
             :disabled="!showTuPreferes"
             >
-            {{ dilemme1 }}
+            <div class="tailleBoutons">
+              {{ dilemme1 }}
+            </div>
         </v-btn>
       </v-hover>
     
@@ -40,7 +42,7 @@
         v-slot="{ hover }"
       >
         <v-btn 
-          @click='clickBoutons("droit")'
+          @click='clickBoutons("droite")'
           :elevation="hover ? 10 : 4"
           :class="{ 'on-hover': hover }"
           :height="tailleBoutons.droite"
@@ -50,7 +52,9 @@
           class = "boutonDroite" 
           :disabled="!showTuPreferes"
         >
+          <div class="tailleBoutons">
             {{ dilemme2 }}
+          </div>
         </v-btn>
       </v-hover>
     </div>
@@ -124,23 +128,36 @@ const socket = io("ws://localhost:3000");
         avis:"",
         dilemme1:"SFR",
         dilemme2:"PFR",
+        pourcentageGauche:"30%",
+        pourcentageDroite:"70%",
+        test: {
+          clicsGauche:20,
+          clicsDroite:20,
+        },
       }
     },
     components: {
       BoutonMode,
     },
     methods: {
-      
+      async calculPourcentage(gauche,droite){
+        var somme=gauche+droite;
+        var pourcentageGauche = gauche/somme;
+        var pourcentageDroite = droite/somme;
+        this.pourcentageGauche = Math.trunc(pourcentageGauche*100).toString()+"%";
+        this.pourcentageDroite = Math.trunc(pourcentageDroite*100).toString()+"%";
+        this.tailleBoutons.gauche = Math.trunc(pourcentageGauche*30).toString()+"vh";
+        this.tailleBoutons.droite = Math.trunc(pourcentageDroite*30).toString()+"vh";
+        console.log("test : ",this.tailleBoutonsResultats.droite)
+      },
       async clickBoutons (cote) {
         this.tailleBoutons.gauche = this.tailleBoutonsResultats.gauche;
         this.tailleBoutons.droite = this.tailleBoutonsResultats.droite;
         this.showTuPreferes = false;
         this.cote=cote;
         console.log(this.cote);
-       socket.emit("test",this.cote);
-
-        
-        
+        socket.emit("test",this.cote);
+        this.calculPourcentage(this.test.clicsGauche, this.test.clicsDroite)
       },
       async clickLike (avis) {
         this.tailleBoutons.gauche = this.tailleMax;
@@ -189,6 +206,9 @@ const socket = io("ws://localhost:3000");
   .boutonGauche{
     margin-left: 10%;
     margin-right: 2%;
+  }
+  .tailleBoutons{ 
+    font-size : 3vw;
   }
   .margeHaut{
     margin-top: 3vh;
