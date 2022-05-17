@@ -18,30 +18,32 @@ fait1 : fait au 1er spring
 - écrire des dilemme				5
 
 FRONT:
-**- page index**				3	(Victor G)
+**- page index**				3	(Victor G) fait2
 - page submit					3	(Paul) fait1
-**- component bouton choix (txt; couleur)**	1 	(Victor G)
+**- component bouton choix (txt; couleur)**	1 	(Victor G) fait2
 **- toolbar**					1	(Paul) fait1
-- component bouton suivant j'aime		1 	(Victor G)
-- component bouton suivant j'aime pas		1 	(Victor G)	
+- component bouton suivant j'aime		1 	(Victor G)(Maxence) fait2
+- component bouton suivant j'aime pas		1 	(Victor G)(Maxence) fait2	
 - component mode (txt)				1 	(Max) fait1
-- component logo: insta/FB/twitter		1/1/1 	(Max) fait1(sauf insta)
-- Animation grossisement			3
-- affichage pourcentage				5
+- component logo: insta/FB/twitter		1/1/1 	(Max)(Paul) fait1fait3
+- Animation grossisement			3	(Max) fait2
+- affichage pourcentage				5	(Max)pas automatique, codé en dur
 - component boutonAremplir			1 	(Paul) fait1
 - component boutonSubmitChangementDePage	1 	(Paul) fait1
 - component boutonSubmitPush -> page dialogue	1	(Paul)
-- component boutonRetour			1	(Paul)
-- push dilemme					3	(Paul)
+- component boutonRetour			1	(Paul) fait2
+- push dilemme					3	
 **- recupérer un dilemme**			3
 - majClics					3 	(Victor S) à relier à la machine
 - majJ'aime					3	(Victor S)
 - Création Object dilemme			1 	(Victor S) fait1				
 - calcul pourcentage				1 	(Victor S) fait1
-- compteurClient				3
-- envoieMode					3
+- compteurClient				3	(Maxence) fait3
+- envoieMode					3	(Maxence/Victor) fait3
 ______ rajouter après______
-- changer l'icône et le titre			1	(Maxence)
+- changer l'icône et le titre			1	(Maxence) fait2
+- stringify					1       
+- taille txt dans les v-btn			1
 
 BACK:
 BD
@@ -52,16 +54,23 @@ BD
 - AjouterDilemme						1 	(Emma) fait1
 - StockerClient							1
 - Lire les dilemmes						3 	(Emma)
+- pb premier dilemme						3
 
 Socket
-**- EnvoyerDilemme**						3
-- RécevoirDilemme						1
-- RecevoirMode							1
+**- EnvoyerDilemme**						3	(Maxence/Victor) fait3
+- RécevoirDilemme						1	(Maxence/Victor) fait3
+- RecevoirMode							1	(Maxence/Victor) reste à traiter la réception
 ______ rajouter après______
-- liaison Serveur vers client					3	(Salah)
+- liaison Serveur vers client					3	(Salah)(Maxence/Victor) fait3
 
-**- Detection nouveau client**					3					
+**- Detection nouveau client**					3	(Maxence/Victor) fait3				
 - se former sur socket IO 					8 	(Salah) fait1
+
+
+______ rajouter après______
+Hébergement
+- trouver une solution mdr					8
+
 
 	Total: 81
 
