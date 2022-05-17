@@ -28,7 +28,7 @@
             :height="tailleBoutons.gauche"
             :width="tailleBoutons.longueur" 
             rounded
-            :style="{ 'background-color': hover ? '#E57373' : 'red' }"
+            :style="{ 'background-color': hover ? 'red' : '#E57373' }"
             class="boutonGauche"
             >
             {{ dilemme1 }}
