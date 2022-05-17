@@ -76,6 +76,7 @@
                 <v-container>
       <v-textarea 
       background-color="green lighten-4"
+      v-model='form1'
       color="black"
       label="Proposition n°1"
     ></v-textarea>
@@ -106,6 +107,7 @@
         <v-form v-model="valid">
                 <v-container>
           <v-textarea
+          v-model='form2'
       background-color="green lighten-4"
       color="black"
       label="Proposition n°2"
