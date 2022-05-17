@@ -168,11 +168,8 @@ const socket = io("ws://localhost:3000");
         socket.emit("test",this.avis);
         socket.on("fromServer", (args) => {
          console.log(socket.id,":",args)
-         this.dilemme1=args[0];
-         this.dilemme2=args[1];
-         console.log(args);
-         console.log(args[0]);
-         console.log(args[1]);
+         this.dilemme1=args[0].split('|')[0];
+         this.dilemme2=args[0].split('|')[1];
         });
       },
       changerMode(_mode){
