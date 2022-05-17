@@ -15,7 +15,7 @@ fait1 : fait au 1er spring
 
 
 	A faire:
-- écrire des dilemme				5
+- écrire des dilemme				5	(Paul)
 
 FRONT:
 **- page index**				3	(Victor G) fait2
@@ -27,13 +27,13 @@ FRONT:
 - component mode (txt)				1 	(Max) fait1
 - component logo: insta/FB/twitter		1/1/1 	(Max)(Paul) fait1fait3
 - Animation grossisement			3	(Max) fait2
-- affichage pourcentage				5	(Max)pas automatique, codé en dur 
+- affichage pourcentage				5	(Max)pas automatique, codé en dur (Victor(s))
 - component boutonAremplir			1 	(Paul) fait1
 - component boutonSubmitChangementDePage	1 	(Paul) fait1
 - component boutonSubmitPush			1	(Paul) 
 - page dialogue						(Paul) fait3
 - component boutonRetour			1	(Paul) fait2
-- push dilemme					3	
+- push dilemme					3	(Salah)
 **- recupérer un dilemme**			3	(Victor G) fait3
 - majClics					3 	(Victor S) à relier à la machine
 - majJ'aime					3	(Victor S)
@@ -42,9 +42,8 @@ FRONT:
 - compteurClient				3	(Maxence) fait3
 - envoieMode					3	(Maxence/Victor) fait3
 ______ rajouter après______
-- changer l'icône et le titre			1	(Maxence) fait2
-- stringify					1       
-- taille txt dans les v-btn			1
+- changer l'icône et le titre			1	(Maxence) fait2      
+- taille txt dans les v-btn			1	(Maxence) fait3
 
 BACK:
 BD
@@ -55,7 +54,7 @@ BD
 - AjouterDilemme						1 	(Emma) fait1
 - StockerClient							1
 - Lire les dilemmes						3 	(Emma) fait2
-- pb premier dilemme						3
+- pb premier dilemme						3	(Victor G)
 
 Socket
 **- EnvoyerDilemme**						3	(Maxence/Victor) fait3
@@ -70,7 +69,7 @@ ______ rajouter après______
 
 ______ rajouter après______
 Hébergement
-- trouver une solution mdr					8
+- trouver une solution mdr					8	(Emma)
 
 
 	Total: 81
