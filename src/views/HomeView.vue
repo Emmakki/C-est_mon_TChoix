@@ -90,9 +90,9 @@
         </v-btn>
       </div>
       
-      </div>
+    </div>
 
-    <div align="center" class = "margeHaut at-bottom"> 
+    <div align="center" class = "margeHaut at-bottom home"> 
       <bouton-mode v-on:mode='changerMode($event)'/>
     </div>
   </div>

@@ -127,11 +127,11 @@
       </v-stepper-content>
     </v-stepper-items>
   </v-stepper>
-  <v-card height="150px" width="150px" class="mx-auto" flat>
-    <v-btn to="/" icon  color="green lighten-1" class="mx-14 my-15">
+ <v-row align="center" justify="space-around">
+    <v-btn to="/" icon color="green lighten-1">
     <v-icon size="75px">mdi-home</v-icon>
   </v-btn>
-  </v-card>
+  </v-row>
 </div> 
 
 </template>
@@ -146,5 +146,8 @@
   }
 </script>
 <style>
-
+.home {
+    background-color: rgb(233, 255, 233) ;
+  }
+  
 </style>

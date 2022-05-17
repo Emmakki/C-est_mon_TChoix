@@ -1,5 +1,5 @@
 <template>
-  <v-app class= "grey lighten-4">
+  <v-app>
     <NavBar />
     <v-content>
       <router-view></router-view>
@@ -24,3 +24,8 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+main {
+  background-color: rgb(233, 255, 233);
+}
+</style>
