@@ -30,6 +30,7 @@
             rounded
             :style="{ 'background-color': hover ? 'red' : '#E57373' }"
             class="boutonGauche"
+            :disabled="!showTuPreferes"
             >
             {{ dilemme1 }}
         </v-btn>
@@ -47,6 +48,7 @@
           rounded
           :style="{ 'background-color': hover ? 'blue' : '#42A5F5'}"
           class = "boutonDroite" 
+          :disabled="!showTuPreferes"
         >
             {{ dilemme2 }}
         </v-btn>
