@@ -131,8 +131,8 @@ const socket = io("ws://localhost:3000");
         pourcentageGauche:"30%",
         pourcentageDroite:"70%",
         test: {
-          clicsGauche:2,
-          clicsDroite:1,
+          clicsGauche:25,
+          clicsDroite:20,
         },
       }
     },
@@ -157,11 +157,7 @@ const socket = io("ws://localhost:3000");
         this.cote=cote;
         console.log(this.cote);
         socket.emit("test",this.cote);
-        if(this.cote=="droite"){
-          this.calculPourcentage(this.test.clicsGauche, this.test.clicsDroite+1)
-        }else{
-          this.calculPourcentage(this.test.clicsGauche+1, this.test.clicsDroite)
-        }
+        this.calculPourcentage(this.test.clicsGauche, this.test.clicsDroite)
       },
       async clickLike (avis) {
         this.tailleBoutons.gauche = this.tailleMax;
