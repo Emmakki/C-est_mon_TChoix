@@ -15,61 +15,61 @@ fait1 : fait au 1er spring
 
 
 	A faire:
-- écrire des dilemme				5	(Paul)
+- écrire des dilemme							5	(Paul)
 
 FRONT:
-**- page index**				3	(Victor G) fait2
-- page submit					3	(Paul) fait1
-**- component bouton choix (txt; couleur)**	1 	(Victor G) fait2
-**- toolbar**					1	(Paul) fait1
-- component bouton suivant j'aime		1 	(Victor G)(Maxence) fait2
-- component bouton suivant j'aime pas		1 	(Victor G)(Maxence) fait2	
-- component mode (txt)				1 	(Max) fait1
-- component logo: insta/FB/twitter		1/1/1 	(Max)(Paul) fait1fait3
-- Animation grossisement			3	(Max) fait2
-- affichage pourcentage				5	(Max)pas automatique, codé en dur (Victor(s))
-- component boutonAremplir			1 	(Paul) fait1
-- component boutonSubmitChangementDePage	1 	(Paul) fait1
-- component boutonSubmitPush			1	(Paul) 
-- page dialogue						(Paul) fait3
-- component boutonRetour			1	(Paul) fait2
-- push dilemme					3	(Salah)
-**- recupérer un dilemme**			3	(Victor G) fait3
-- majClics					3 	(Victor S) à relier à la machine
-- majJ'aime					3	(Victor S)
-- Création Object dilemme			1 	(Victor S) fait1				
-- calcul pourcentage				1 	(Victor S) fait1
-- compteurClient				3	(Maxence) fait3
-- envoieMode					3	(Maxence/Victor) fait3
+**- page index**								3	(Victor G) fait2
+- page submit								3	(Paul) fait1
+**- component bouton choix (txt; couleur)**			1 	(Victor G) fait2
+**- toolbar**								1	(Paul) fait1
+- component bouton suivant j'aime					1 	(Victor G)(Maxence) fait2
+- component bouton suivant j'aime pas				1 	(Victor G)(Maxence) fait2	
+- component mode (txt)							1 	(Max) fait1
+- component logo: insta/FB/twitter					1/1/1 	(Max)(Paul) fait1fait3
+- Animation grossisement						3	(Max) fait2
+- affichage pourcentage							5	(Max)pas automatique, codé en dur (Victor(s))
+- component boutonAremplir						1 	(Paul) fait1
+- component boutonSubmitChangementDePage				1 	(Paul) fait1
+- component boutonSubmitPush						1	(Paul) 
+- page dialogue									(Paul) fait3
+- component boutonRetour						1	(Paul) fait2
+- push dilemme								3	(Salah)
+**- recupérer un dilemme**						3	(Victor G) fait3
+- majClics									3 	(Victor S) à relier à la machine
+- majJ'aime									3	(Victor S)
+- Création Object dilemme						1 	(Victor S) fait1				
+- calcul pourcentage							1 	(Victor S) fait1
+- compteurClient								3	(Maxence) fait3
+- envoieMode								3	(Maxence/Victor) fait3
 ______ rajouter après______
-- changer l'icône et le titre			1	(Maxence) fait2      
-- taille txt dans les v-btn			1	(Maxence) fait3
+- changer l'icône et le titre						1	(Maxence) fait2      
+- taille txt dans les v-btn						1	(Maxence) fait3
 
 BACK:
 BD
 - table BD: choix1/choix2/clique1/clique2/visible/j'aime 	1 	(Emma) fait1
 **- choisir un dilemme (modeDeJeu)**				5 	(Emma) fait1
-- MAJtable							3	(Emma) fait2
-- MAJmode							1	(Emma) fait2
-- AjouterDilemme						1 	(Emma) fait1
-- StockerClient							1
-- Lire les dilemmes						3 	(Emma) fait2
-- pb premier dilemme						3	(Victor G)
+- MAJtable									3	(Emma) fait2
+- MAJmode									1	(Emma) fait2
+- AjouterDilemme								1 	(Emma) fait1
+- StockerClient								1
+- Lire les dilemmes							3 	(Emma) fait2
+- pb premier dilemme							3	(Victor G)
 
 Socket
-**- EnvoyerDilemme**						3	(Maxence/Victor) fait3
-- RécevoirDilemme						1	(Maxence/Victor) fait3
-- RecevoirMode							1	(Maxence/Victor) reste à traiter la réception
+**- EnvoyerDilemme**							3	(Maxence/Victor) fait3
+- RécevoirDilemme								1	(Maxence/Victor) fait3
+- RecevoirMode								1	(Maxence/Victor) reste à traiter la réception
 ______ rajouter après______
-- liaison Serveur vers client					3	(Salah)(Maxence/Victor) fait3
+- liaison Serveur vers client						3	(Salah)(Maxence/Victor) fait3
 
 **- Detection nouveau client**					3	(Maxence/Victor) fait3				
-- se former sur socket IO 					8 	(Salah) fait1
+- se former sur socket IO 						8 	(Salah) fait1
 
 
 ______ rajouter après______
 Hébergement
-- trouver une solution mdr					8	(Emma)
+- trouver une solution mdr						8	(Emma)
 
 
 	Total: 81
