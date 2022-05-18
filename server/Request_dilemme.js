@@ -2,34 +2,36 @@ const Dilemme = require('./model_dilemme.js');
 var Mode = "Aléatoire";
 
 // récupérer un dilemme dans la base de donnée
-exports.choixDilemme = function(){
+exports.choixDilemme = function(dilprec){
+    precedent = SplitString(dilprec);
     return new Promise (function(resolve){
         setTimeout(
             ()=>{
                 Dilemme.find(null, function (err, dil) {
                     if (err) { throw err; }
                     if (globalThis.Mode == "Aléatoire"){
-                        var total = dil.length;
-                        //console.log(total);
+                        var total = 0;
+                        let tab = [];
+                        for(i=0;i<dil.length;i++){
+                            if(dil[i].visible =="True" && precedent[0]!=dil[i].choix1 && precedent[1]!=dil[i].choix2) {
+                                total ++
+                                tab.push(i);
+                            }
+                        }
                         var alea = Math.floor(Math.random()*total);
-                        //console.log(alea);
-            
-                        resolve( BDtoString(dil[alea]));
+                        resolve(BDtoString(dil[tab[alea]]));
             
                     } if (globalThis.Mode == "Les + difficiles"){
                         var total = 0;
                         let tab = [];
                         for(i=0;i<dil.length;i++){
-                            if(Math.abs(dil[i].nbClique1-dil[i].nbClique2)<10) {
+                            if(Math.abs(dil[i].nbClique1-dil[i].nbClique2)<10 && dil[i].visible =="True" && precedent[0]!=dil[i].choix1 && precedent[1]!=dil[i].choix2) {
                                 total ++
                                 tab.push(i);
                             }
                         }
-                        //console.log(total);
                         var alea = Math.floor(Math.random()*total);
-                        //console.log(dil[tab[alea]]);
-            
-                        resolve( BDtoString(dil[tab[alea]]));
+                        resolve(BDtoString(dil[tab[alea]]));
             
                     } if (globalThis.Mode == "Les + aimés"){
                         var totj =0;
@@ -39,15 +41,13 @@ exports.choixDilemme = function(){
                         }
                         total = 0;
                         for(i=0;i<dil.length;i++){
-                            if(dil[i].jaime > 0.66*totj) {
+                            if(dil[i].jaime > 0.66*totj && dil[i].visible =="True" && precedent[0]!=dil[i].choix1 && precedent[1]!=dil[i].choix2) {
                                 total ++
                                 tab.push(i);
                             }
                         }
-                        var alea = Math.floor(Math.random()*total);
-                        //console.log(alea);
-            
-                        resolve( BDtoString(dil[tab[alea]]));
+                        var alea = Math.floor(Math.random()*total);;
+                        resolve(BDtoString(dil[tab[alea]]));
                     } else {
                         resolve( "Ce mode n'existe pas");
                     }
