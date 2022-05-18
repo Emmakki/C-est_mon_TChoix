@@ -36,9 +36,11 @@ const io = require("socket.io")(httpServer, {
 });
 
 io.on("connection", (socket) => {
+  Request.choixDilemme().then(function(res){socket.emit("start", res); console.log("envoi initial : "+res)});
   // réception d'un message envoyé par le client
   console.log("nouvelle connexion")
   socket.on("suivant", (...args) => {
+    
     console.log(socket.id,":",args)
     
     Request.choixDilemme().then(function(res){socket.emit("fromServer", res)});
