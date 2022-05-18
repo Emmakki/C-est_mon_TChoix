@@ -132,10 +132,10 @@ const socket = io("ws://localhost:3000");
         dilemme2:"PFR",
         pourcentageGauche:"30%",
         pourcentageDroite:"70%",
-        clics: {
-          clicsGauche:20,
-          clicsDroits:20,
-        },
+        clicsGauche:1,
+        clicsDroits:1,
+        visible:true,
+        nbLike:0,
       }
     },
     components: {
@@ -158,37 +158,38 @@ const socket = io("ws://localhost:3000");
         this.showTuPreferes = false;
         this.cote=cote;
         //console.log(this.cote);
-        this.calculPourcentage(this.clics.clicsGauche, this.clics.clicsDroits);
+        this.calculPourcentage(this.clicsGauche, this.clicsDroits);
         
         
         //console.log("Click droit avant :",this.clics.clicsDroits);
         //console.log("Click gauche avant :",this.clics.clicsGauche);
-        console.log("Click gauche avant :",parseInt(this.string.split('|')[2]));
-        console.log("Click droit avant :",parseInt(this.string.split('|')[3]));
+        console.log("Click gauche avant :",this.clicsGauche);
+        console.log("Click droit avant :",this.clicsDroits);
         //console.log(parseInt(this.string.split('|')[3]));
         
         
         
         if (cote=="droit"){
-          this.clics.clicsDroits = parseInt(this.string.split('|')[2]) + 1;
-          this.string=this.string.split('|')[0]+ "|"+ this.string.split('|')[1]+ "|"+this.string.split('|')[2]+ "|" + String(this.clics.clicsDroits)
+          this.clicsDroits += 1;
+          this.string=this.string.split('|')[0]+ "|"+ this.string.split('|')[1]+ "|"+this.string.split('|')[2]+ "|" + String(this.clicsDroits)
           + "|" + this.string.split('|')[4] + "|" + this.string.split('|')[5];
         }
         if (cote=="gauche"){
-          this.clics.clicsDroits = parseInt(this.string.split('|')[3]) + 1;
-          this.string=this.string.split('|')[0]+ "|"+ this.string.split('|')[1]+ "|"+String(this.clics.clicsDroits)+ "|"+this.string.split('|')[3]
+          this.clicsGauche += 1;
+          this.string=this.string.split('|')[0]+ "|"+ this.string.split('|')[1]+ "|"+String(this.clicsGauche)+ "|"+this.string.split('|')[3]
           + "|" + this.string.split('|')[4] + "|" + this.string.split('|')[5];
         }
 
-        console.log("Click gauche apres :",this.clics.clicsGauche);
-        console.log("Click droit apres :",this.clics.clicsDroits);
-        console.log("Click gauche apres :",this.string.split('|')[2]);
-        console.log("Click droit apres :",this.string.split('|')[3]);
-        console.log(this.string);
+        console.log("Click gauche apres :",this.clicsGauche);
+        console.log("Click droit apres :",this.clicsDroits);
+        //console.log("Click gauche apres :",this.string.split('|')[2]);
+        //console.log("Click droit apres :",this.string.split('|')[3]);
+        console.log("String après :",this.string);
         socket.emit("cote",this.string);
 
 
       },
+      
       async clickLike (avis) {
         this.tailleBoutons.gauche = this.tailleMax;
         this.tailleBoutons.droite = this.tailleMax;
@@ -197,17 +198,25 @@ const socket = io("ws://localhost:3000");
         console.log(this.avis);
         socket.emit("suivant",this.avis);
         socket.on("fromServer", (args) => {
-         console.log(socket.id,":",args)
+         console.log(socket.id,":",args);
          this.string=args;
-         this.dilemme1=args.split('|')[0];
-         this.dilemme2=args.split('|')[1];
+         this.saveString(args);
         });
+      },
+      saveString(args){
+        this.dilemme1=args.split('|')[0];
+        this.dilemme2=args.split('|')[1];
+        this.clicsGauche=parseInt(args.split('|')[2]);
+        this.clicsDroits=parseInt(args.split('|')[3]);
+        this.visible=args.split('|')[4];
+        this.nbLike=parseInt(args.split('|')[5]);
       },
       changerMode(_mode){
         this.mode=_mode;
         console.log(this.mode);
        socket.emit("test",this.mode);
       },
+
       destroyed(){
         socket.off("disconnect");
       }
