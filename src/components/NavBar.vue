@@ -12,7 +12,8 @@
      <p class="TITRE" >C'est mon TChoix</p>
      </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn to="/propos" color="green lighten-4" x-large rounded>Proposition</v-btn>
+      <v-btn to="/propos" color="green lighten-4" x-large rounded v-show="showBouton">Proposition</v-btn>
+      <v-btn to="/" color="green lighten-4" x-large rounded v-show="!showBouton">Retour</v-btn>
     </v-toolbar>
   </header>
   </nav>

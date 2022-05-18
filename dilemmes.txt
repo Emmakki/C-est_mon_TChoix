@@ -21,5 +21,27 @@ reflechir lentement mais faire tout le reste rapidement|reflechir rapidement mai
 être le premier des plus nuls|être le plus nul des meilleurs|0|0|True|0
 voir tout tes amis mourir|être le premier des tes amis à mourir|0|0|True|0
 SFR(pas le prof haha ^^)|ORANGE|0|0|True|0
-Connaître l'amour de sa vie sans savoir où et quand tu le rencontreras|Savoir où et quand tu rencontreras l'amour de ta vie mais ne pas savoir qui c'est|0|0|True|0
-
+Réseau|Syscom|0|0|True|0
+IF|TC|0|0|True|0
+Fimi|Départ|0|0|True|0
+Automne|Printemps|0|0|True|0
+Méthode en V|Méthode Agile|0|0|True|0
+Gauche|Droite|0|0|True|0
+Animé|Manga|0|0|True|0
+Films|Séries|0|0|True|0
+Procrastination|Précrastination|0|0|True|0
+Soirée bourré|Soirée Sobre|0|0|True|0
+Faire le mal|Subir le mal|0|0|True|0
+Commandeur|Commandé|0|0|True|0
+Ronaldo|Messi|0|0|True|0
+Tréso|Vice-tréso|0|0|True|0
+Piqure de Moustiques|Piqure de guêpes|0|0|True|0
+Seul mais heureux|Accompagné mais triste|0|0|True|0
+Seins|Fesses|0|0|True|0
+De sang|de Chair|0|0|True|0
+Invulnérabilité|Immortalité|0|0|True|0
+Ingénieur différent|Ingénieur performant|0|0|True|0
+Films|Séries|0|0|True|0
+Films|Séries|0|0|True|0
+Films|Séries|0|0|True|0
+Films|Séries|0|0|True|0

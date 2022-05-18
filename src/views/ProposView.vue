@@ -1,6 +1,6 @@
 <template>
 <div>
-
+  <NavBar />
   <v-stepper v-model="e1"
   width="600px"
   class="mx-auto my-12"
@@ -136,17 +136,17 @@
       </v-stepper-content>
     </v-stepper-items>
   </v-stepper>
- <v-row align="center" justify="space-around">
+ <!--<v-row align="center" justify="space-around">
     <v-btn to="/" icon color="green lighten-1">
     <v-icon size="75px">mdi-home</v-icon>
   </v-btn>
-  </v-row>
+  </v-row>-->
 </div> 
 
 </template>
 
 <script >
-
+  import NavBar from '@/components/NavBar.vue'
   import { io } from "socket.io-client";
   const socket = io("ws://localhost:3000");
   export default {
@@ -156,7 +156,11 @@
         timeout: 2000,
         Proposition1: '',
         Proposition2: '',
+        showBouton:false,
       }),
+    components: {
+      NavBar,
+    },
       methods: {
         async submit(){
           this.snackbar = true;
