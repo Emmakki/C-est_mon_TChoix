@@ -40,8 +40,12 @@ io.on("connection", (socket) => {
   // réception d'un message envoyé par le client
   console.log("nouvelle connexion")
   socket.on("suivant", (...args) => {
+    
+    console.log(socket.id,":",args);
     Request.UpdateDilemme(args);
+    
     Request.choixDilemme().then(function(res){socket.emit("fromServer", res)});
+
   });
 
   socket.on("cote", (...args) => {
