@@ -46,8 +46,14 @@ io.on("connection", (socket) => {
     Request.choixDilemme().then(function(res){socket.emit("fromServer", res)});
 
   });
+
   socket.on("cote", (...args) => {
     console.log(args);
+  });
+
+  socket.on("prop", (arg) => {
+    Request.AddDilemme(arg);
+    console.log(socket.id,":",arg)
   });
   
 
