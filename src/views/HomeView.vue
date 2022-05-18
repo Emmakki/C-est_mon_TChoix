@@ -198,7 +198,20 @@ const socket = io("ws://localhost:3000");
         this.showTuPreferes = true;
         this.avis=avis;
         console.log(this.avis);
-        socket.emit("suivant",this.avis);
+        console.log(this.nbLike);
+
+        if (avis=="like"){
+          this.nbLike += 1;
+          this.string=this.string.split('|')[0]+ "|"+ this.string.split('|')[1]+ "|"+this.string.split('|')[2]+ "|" + this.string.split('|')[3]
+          + "|" + this.string.split('|')[4] + "|" + String(this.nbLike);
+        }
+        if (avis=="dislike"){
+          this.nbLike -= 1;
+          this.string=this.string.split('|')[0]+ "|"+ this.string.split('|')[1]+ "|"+this.string.split('|')[2]+ "|"+this.string.split('|')[3]
+          + "|" + this.string.split('|')[4] + "|" + String(this.nbLike);
+        }
+        console.log(this.nbLike);
+        socket.emit("suivant",this.string);
         socket.on("fromServer", (args) => {
          console.log(socket.id,":",args);
          this.string=args;
