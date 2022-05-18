@@ -75,10 +75,11 @@
         ><v-form v-model="valid">
                 <v-container>
       <v-textarea 
+      
       background-color="green lighten-4"
-      v-model='form1'
       color="black"
       label="Proposition n°1"
+      v-model="Proposition1"
     ></v-textarea>
               
                 </v-container>
@@ -107,10 +108,10 @@
         <v-form v-model="valid">
                 <v-container>
           <v-textarea
-          v-model='form2'
       background-color="green lighten-4"
       color="black"
       label="Proposition n°2"
+      v-model="Proposition2"
     ></v-textarea>
               
                 </v-container>
@@ -118,7 +119,7 @@
 
         <v-btn
           color="green lighten-4"
-          @click="snackbar = true"
+          @click="submit()"
         >
           Valider
         </v-btn>
@@ -144,13 +145,25 @@
 
 </template>
 
-<script>
+<script >
+
+  import { io } from "socket.io-client";
+  const socket = io("ws://localhost:3000");
   export default {
       data: () => ({
         snackbar: false,
         e1: 1,
         timeout: 2000,
+        Proposition1: '',
+        Proposition2: '',
       }),
+      methods: {
+        async submit(){
+          this.snackbar = true;
+          console.log("test : ",this.Proposition1+"|"+this.Proposition2+"|0|0|True|0");
+          socket.emit("prop",this.Proposition1+"|"+this.Proposition2+"|0|0|True|0");
+      }
+      }
     }
 </script>
 <style>
