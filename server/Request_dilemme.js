@@ -1,5 +1,5 @@
 const Dilemme = require('./model_dilemme.js');
-var Mode = "alea";
+var Mode = "Aléatoire";
 
 // récupérer un dilemme dans la base de donnée
 exports.choixDilemme = function(){
@@ -8,7 +8,7 @@ exports.choixDilemme = function(){
             ()=>{
                 Dilemme.find(null, function (err, dil) {
                     if (err) { throw err; }
-                    if (globalThis.Mode == "alea"){
+                    if (globalThis.Mode == "Aléatoire"){
                         var total = dil.length;
                         //console.log(total);
                         var alea = Math.floor(Math.random()*total);
@@ -16,7 +16,7 @@ exports.choixDilemme = function(){
             
                         resolve( BDtoString(dil[alea]));
             
-                    } if (globalThis.Mode == "difficile"){
+                    } if (globalThis.Mode == "Les + difficiles"){
                         var total = 0;
                         let tab = [];
                         for(i=0;i<dil.length;i++){
@@ -31,7 +31,7 @@ exports.choixDilemme = function(){
             
                         resolve( BDtoString(dil[tab[alea]]));
             
-                    } if (globalThis.Mode == "populaire"){
+                    } if (globalThis.Mode == "Les + aimés"){
                         var totj =0;
                         let tab = [];
                         for(i=0;i<dil.length;i++){
@@ -112,12 +112,12 @@ exports.UpdateDilemme = function(dile){
 
 //Modifie la variable globale qui définie le mode de jeu
 exports.UpdateMode = function(mode){
-    if (mode == "alea" || mode == "difficile" || mode == "populaire"){
+    if (mode == "Aléatoire" || mode == "Les + difficiles" || mode == "Les + aimés"){
         globalThis.Mode = mode;
-        console.log(globalThis.Mode);
     } else {
-        console.log("ce mode n'existe pas");
+        globalThis.Mode = "Aléatoire";
     }
+    console.log("mode : "+globalThis.Mode);
 }
 
 //Ajoute dans la base de donnée des dilemmes depuis un fichier texte formaté
@@ -138,7 +138,7 @@ exports.lectureDilemme = function(fichiertexte){
 
 //Pour séparer une chaine de caractère
 function SplitString (dile){
-    return dile.split('|');
+    return dile.toString().split('|');
 }
 
 function BDtoString (dile){

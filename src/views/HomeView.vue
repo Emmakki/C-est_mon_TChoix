@@ -99,7 +99,7 @@
     </div>
 
     <div align="center" class = "margeHaut at-bottom"> 
-      <bouton-mode v-on:mode='changerMode($event)'/>
+      <bouton-mode v-on:mode='clickMode($event)'/>
     </div>
   </div>
 </template>
@@ -226,10 +226,10 @@ const socket = io("ws://localhost:3000");
         this.visible=args.split('|')[4];
         this.nbLike=parseInt(args.split('|')[5]);
       },
-      changerMode(_mode){
+      clickMode(_mode){
         this.mode=_mode;
         console.log(this.mode);
-       socket.emit("test",this.mode);
+       socket.emit("mode",this.mode);
       },
 
       destroyed(){
