@@ -141,7 +141,7 @@ const socket = io("ws://localhost:3000");
         showBouton:true,
         tailleMax : "45vh",
         showTuPreferes:true,
-        mode:"",
+        mode:"alea",
         cote:"",
         avis:"",
         string:"",
@@ -177,18 +177,7 @@ const socket = io("ws://localhost:3000");
         this.tailleBoutons.droite = this.tailleBoutonsResultats.droite;
         this.showTuPreferes = false;
         this.cote=cote;
-        //console.log(this.cote);
        
-        
-        
-        //console.log("Click droit avant :",this.clics.clicsDroits);
-        //console.log("Click gauche avant :",this.clics.clicsGauche);
-        console.log("Click gauche avant :",this.clicsGauche);
-        console.log("Click droit avant :",this.clicsDroits);
-        //console.log(parseInt(this.string.split('|')[3]));
-        
-        
-        
         if (cote=="droit"){
           this.clicsDroits += 1;
           this.string=this.string.split('|')[0]+ "|"+ this.string.split('|')[1]+ "|"+this.string.split('|')[2]+ "|" + String(this.clicsDroits)
@@ -200,15 +189,6 @@ const socket = io("ws://localhost:3000");
           + "|" + this.string.split('|')[4] + "|" + this.string.split('|')[5];
         }
         this.calculPourcentage(this.clicsGauche, this.clicsDroits);
-
-        console.log("Click gauche apres :",this.clicsGauche);
-        console.log("Click droit apres :",this.clicsDroits);
-        //console.log("Click gauche apres :",this.string.split('|')[2]);
-        //console.log("Click droit apres :",this.string.split('|')[3]);
-        console.log("String après :",this.string);
-        socket.emit("cote",this.string);
-
-
       },
       
       async clickLike (avis) {

@@ -93,19 +93,15 @@ exports.UpdateDilemme = function(dile){
 
     Dilemme.updateOne({"choix1":d[0]},{nbClique1:parseInt(d[2])},function (err) {
         if (err) {throw err;}
-        console.log('Update 1/4')
     });
     Dilemme.updateOne({"choix1":d[0]},{nbClique2:parseInt(d[3])},function (err) {
         if (err) {throw err;}
-        console.log('Update 2/4')
     });
     Dilemme.updateOne({"choix1":d[0]},{visible:d[4]},function (err) {
         if (err) {throw err;}
-        console.log('Update 3/4')
     });
     Dilemme.updateOne({"choix1":d[0]},{jaime:parseInt(d[5])},function (err) {
         if (err) {throw err;}
-        console.log('Update 4/4')
     });
     
 }

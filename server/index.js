@@ -7,7 +7,7 @@ db.once('open', function() {
   console.log("connecté à Mongoose")
 });
 
-//Request.UpdateMode("alea");
+Request.UpdateMode("alea");
 
 //Request.choixDilemme().then(function(res){console.log(res.split('|')[0])});
 //Request.choixDilemme().then(function(res){console.log(res)});
@@ -36,9 +36,9 @@ const io = require("socket.io")(httpServer, {
 });
 
 io.on("connection", (socket) => {
-  Request.choixDilemme("|||||").then(function(res){socket.emit("start", res); console.log("envoi initial : "+res)});
   // réception d'un message envoyé par le client
   console.log("nouvelle connexion")
+  Request.choixDilemme("|||||").then(function(res){socket.emit("start", res); console.log("envoi initial : "+res)});
   socket.on("suivant", (...args) => {
     
     console.log(socket.id,":",args);
@@ -59,7 +59,7 @@ io.on("connection", (socket) => {
   
  
   socket.on("mode", (...args) => {
-    Request.UpdateDilemme(args);
+    Request.UpdateMode(args);
   });
 
 
