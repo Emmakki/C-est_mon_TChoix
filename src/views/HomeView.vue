@@ -1,4 +1,3 @@
-
 <template>
   <div class="home">
     <v-row align = "center" justify = "center">
@@ -160,7 +159,7 @@ const socket = io("ws://localhost:3000");
         this.showTuPreferes = false;
         this.cote=cote;
         //console.log(this.cote);
-        this.calculPourcentage(this.clicsGauche, this.clicsDroits);
+       
         
         
         //console.log("Click droit avant :",this.clics.clicsDroits);
@@ -181,6 +180,7 @@ const socket = io("ws://localhost:3000");
           this.string=this.string.split('|')[0]+ "|"+ this.string.split('|')[1]+ "|"+String(this.clicsGauche)+ "|"+this.string.split('|')[3]
           + "|" + this.string.split('|')[4] + "|" + this.string.split('|')[5];
         }
+        this.calculPourcentage(this.clicsGauche, this.clicsDroits);
 
         console.log("Click gauche apres :",this.clicsGauche);
         console.log("Click droit apres :",this.clicsDroits);
@@ -240,7 +240,9 @@ const socket = io("ws://localhost:3000");
     mounted : function(){
       socket.on("start", (args) => {
          this.hello();
-         console.log(args)
+         console.log(args);
+         this.string=args;
+         this.saveString(args);
       });
     },
     
