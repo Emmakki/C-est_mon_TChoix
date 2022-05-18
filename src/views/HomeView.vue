@@ -22,7 +22,8 @@
       <v-hover
         v-slot="{ hover }"
       >
-        <v-btn @click='clickBoutons("gauche")'
+        <v-btn 
+            @click='clickBoutons("gauche")'
             :elevation="hover ? 10 : 4"
             :class="{ 'on-hover': hover }"
             :height="tailleBoutons.gauche"
@@ -42,7 +43,7 @@
         v-slot="{ hover }"
       >
         <v-btn 
-          @click='clickBoutons("droite")'
+          @click='clickBoutons("droit")'
           :elevation="hover ? 10 : 4"
           :class="{ 'on-hover': hover }"
           :height="tailleBoutons.droite"
@@ -126,13 +127,14 @@ const socket = io("ws://localhost:3000");
         mode:"",
         cote:"",
         avis:"",
+        string:"",
         dilemme1:"SFR",
         dilemme2:"PFR",
         pourcentageGauche:"30%",
         pourcentageDroite:"70%",
-        test: {
+        clics: {
           clicsGauche:20,
-          clicsDroite:20,
+          clicsDroits:20,
         },
       }
     },
@@ -148,16 +150,44 @@ const socket = io("ws://localhost:3000");
         this.pourcentageDroite = Math.trunc(pourcentageDroite*100).toString()+"%";
         this.tailleBoutons.gauche = Math.trunc(pourcentageGauche*30).toString()+"vh";
         this.tailleBoutons.droite = Math.trunc(pourcentageDroite*30).toString()+"vh";
-        console.log("test : ",this.tailleBoutonsResultats.droite)
+        //console.log("test : ",this.tailleBoutonsResultats.droite)
       },
       async clickBoutons (cote) {
         this.tailleBoutons.gauche = this.tailleBoutonsResultats.gauche;
         this.tailleBoutons.droite = this.tailleBoutonsResultats.droite;
         this.showTuPreferes = false;
         this.cote=cote;
-        console.log(this.cote);
-        socket.emit("test",this.cote);
-        this.calculPourcentage(this.test.clicsGauche, this.test.clicsDroite)
+        //console.log(this.cote);
+        this.calculPourcentage(this.clics.clicsGauche, this.clics.clicsDroits);
+        
+        
+        //console.log("Click droit avant :",this.clics.clicsDroits);
+        //console.log("Click gauche avant :",this.clics.clicsGauche);
+        console.log("Click gauche avant :",parseInt(this.string.split('|')[2]));
+        console.log("Click droit avant :",parseInt(this.string.split('|')[3]));
+        //console.log(parseInt(this.string.split('|')[3]));
+        
+        
+        
+        if (cote=="droit"){
+          this.clics.clicsDroits = parseInt(this.string.split('|')[2]) + 1;
+          this.string=this.string.split('|')[0]+ "|"+ this.string.split('|')[1]+ "|"+this.string.split('|')[2]+ "|" + String(this.clics.clicsDroits)
+          + "|" + this.string.split('|')[4] + "|" + this.string.split('|')[5];
+        }
+        if (cote=="gauche"){
+          this.clics.clicsDroits = parseInt(this.string.split('|')[3]) + 1;
+          this.string=this.string.split('|')[0]+ "|"+ this.string.split('|')[1]+ "|"+String(this.clics.clicsDroits)+ "|"+this.string.split('|')[3]
+          + "|" + this.string.split('|')[4] + "|" + this.string.split('|')[5];
+        }
+
+        console.log("Click gauche apres :",this.clics.clicsGauche);
+        console.log("Click droit apres :",this.clics.clicsDroits);
+        console.log("Click gauche apres :",this.string.split('|')[2]);
+        console.log("Click droit apres :",this.string.split('|')[3]);
+        console.log(this.string);
+        socket.emit("cote",this.string);
+
+
       },
       async clickLike (avis) {
         this.tailleBoutons.gauche = this.tailleMax;
@@ -165,11 +195,12 @@ const socket = io("ws://localhost:3000");
         this.showTuPreferes = true;
         this.avis=avis;
         console.log(this.avis);
-        socket.emit("test",this.avis);
+        socket.emit("suivant",this.avis);
         socket.on("fromServer", (args) => {
          console.log(socket.id,":",args)
-         this.dilemme1=args[0].split('|')[0];
-         this.dilemme2=args[0].split('|')[1];
+         this.string=args;
+         this.dilemme1=args.split('|')[0];
+         this.dilemme2=args.split('|')[1];
         });
       },
       changerMode(_mode){

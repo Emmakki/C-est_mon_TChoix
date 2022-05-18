@@ -8,6 +8,7 @@ db.once('open', function() {
 });
 
 Request.UpdateMode("alea");
+
 Request.choixDilemme().then(function(res){console.log(res.split('|')[0])});
 Request.choixDilemme().then(function(res){console.log(res)});
 
@@ -37,12 +38,18 @@ const io = require("socket.io")(httpServer, {
 io.on("connection", (socket) => {
   // réception d'un message envoyé par le client
   console.log("nouvelle connexion")
-  socket.on("test", (...args) => {
+  socket.on("suivant", (...args) => {
     console.log(socket.id,":",args)
     
-    Request.choixDilemme().then(function(res){socket.emit("fromServer", [res, "Chat"])});
+    Request.choixDilemme().then(function(res){socket.emit("fromServer", res)});
 
   });
+  socket.on("cote", (...args) => {
+    console.log(args);
+  });
+  
+
+
 
   socket.on("disconnect",()=>{
     console.log("déconnexion", socket.id);
