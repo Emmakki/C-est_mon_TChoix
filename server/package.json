@@ -6,9 +6,10 @@
   "scripts": {
     "start": "node index.js"
   },
-  "author": "Damien Arrachequesne <damien.arrachequesne@gmail.com>",
+  "author": "TC",
   "license": "MIT",
   "dependencies": {
+    "mongoose": "^6.3.3",
     "socket.io": "^3.1.1"
   }
 }

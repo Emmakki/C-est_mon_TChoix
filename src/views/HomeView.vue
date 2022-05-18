@@ -131,7 +131,7 @@ const socket = io("ws://localhost:3000");
         pourcentageGauche:"30%",
         pourcentageDroite:"70%",
         test: {
-          clicsGauche:20,
+          clicsGauche:25,
           clicsDroite:20,
         },
       }
