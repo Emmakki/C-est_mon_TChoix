@@ -109,7 +109,6 @@
 import BoutonMode from '@/components/BoutonMode.vue'
 import { io } from "socket.io-client";
 const socket = io("ws://localhost:3000");
-
   export default {
     data () {
       return {
@@ -142,6 +141,9 @@ const socket = io("ws://localhost:3000");
       BoutonMode,
     },
     methods: {
+      hello(){
+        console.log("hello");
+      },
       async calculPourcentage(gauche,droite){
         var somme=gauche+droite;
         var pourcentageGauche = gauche/somme;
@@ -221,6 +223,12 @@ const socket = io("ws://localhost:3000");
         socket.off("disconnect");
       }
 
+    },
+    mounted : function(){
+      socket.on("start", (args) => {
+         this.hello();
+         console.log(args)
+      });
     },
     
   }
