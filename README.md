@@ -23,7 +23,13 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-###Lancer le server
-'''
+### Server setup
+```
+cd ./server/
+npm install
+```
+
+### Compiles server and hot-reloads for development
+```
 npm start
-'''
+```
