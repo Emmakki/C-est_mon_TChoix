@@ -31,14 +31,18 @@ connectToMongoDB()
 const httpServer = require("http").createServer();
 const io = require("socket.io")(httpServer, {
   cors: {
-    origin: "http://localhost:8080",
+    origin: "*",
   },
 });
 
 io.on("connection", (socket) => {
   // réception d'un message envoyé par le client
   console.log("nouvelle connexion")
-  Request.choixDilemme("|||||").then(function(res){socket.emit("start", res); console.log("envoi initial : "+res)});
+  socket.on("demandeInitiale", (...args) => {
+    Request.choixDilemme(args).then(function(res){socket.emit("start", res)});
+  });
+  
+  //Request.choixDilemme("|||||").then(function(res){socket.emit("start", res); console.log("envoi initial : "+res)});
   socket.on("suivant", (...args) => {
     
     console.log(socket.id,":",args);
@@ -65,6 +69,10 @@ io.on("connection", (socket) => {
 
   socket.on("disconnect",()=>{
     console.log("déconnexion", socket.id);
+  });
+
+  socket.on("test",(...args)=>{
+    console.log(args);
   });
 });
 

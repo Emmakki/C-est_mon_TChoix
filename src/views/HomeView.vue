@@ -235,6 +235,7 @@ const socket = io("ws://localhost:3000");
 
     },
     mounted : function(){
+      socket.emit("demandeInitiale","|||||");
       socket.on("start", (args) => {
          this.hello();
          console.log(args);

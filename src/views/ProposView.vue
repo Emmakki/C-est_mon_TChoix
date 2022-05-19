@@ -144,7 +144,7 @@
         </v-snackbar>
 
         <v-btn text
-        @click="e1 = 2">
+        @click="retour()">
           Retour
         </v-btn>
       </v-stepper-content>
@@ -171,12 +171,25 @@
         Proposition2: '',
       }),
       methods: {
+        hello(){
+          console.log("hello");
+        },
         async submit(){
           this.snackbar = true;
           console.log("test : ",this.Proposition1+"|"+this.Proposition2+"|0|0|True|0");
           socket.emit("prop",this.Proposition1+"|"+this.Proposition2+"|0|0|True|0");
-      }
-      }
+        },
+        async retour(){
+          this.e1 = 2;
+          console.log("test");
+          //rien ne s'affiche v-btn qui ne marche pas ?
+        },
+        
+      },
+      mounted : function(){
+        this.hello();
+        socket.emit("test","page submit");
+    },
     }
 </script>
 <style>
