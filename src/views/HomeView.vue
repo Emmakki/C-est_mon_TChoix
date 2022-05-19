@@ -17,6 +17,7 @@
     </v-toolbar>
   </header>
   </nav>
+    <br/>
     <v-row align = "center" justify = "center">
       <p id="titre" 
         class="text-center"
