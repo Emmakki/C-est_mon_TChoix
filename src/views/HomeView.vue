@@ -42,14 +42,15 @@
       >
         <v-btn 
             @click='clickBoutons("gauche")'
-            :elevation="hover ? 10 : 4"
+            :elevation="hover ? 13 : 4"
             :class="{ 'on-hover': hover }"
             :height="tailleBoutons.gauche"
             :width="tailleBoutons.longueur" 
             rounded
-            :style="{ 'background-color': hover ? 'red' : '#E57373' }"
+            :style="{ 'background-color': hover ? '#F76565' : '#FA7373' }"
             class="boutonGauche"
             :disabled="!showTuPreferes"
+            id ="custom-disabled-gauche"
             >
             <div class="tailleBoutons text-wrap" style="max-width: 32vw;">
               {{ dilemme1 }}
@@ -62,14 +63,15 @@
       >
         <v-btn 
           @click='clickBoutons("droit")'
-          :elevation="hover ? 10 : 4"
+          :elevation="hover ? 13 : 4"
           :class="{ 'on-hover': hover }"
           :height="tailleBoutons.droite"
           :width="tailleBoutons.longueur"
           rounded
-          :style="{ 'background-color': hover ? 'blue' : '#42A5F5'}"
+          :style="{ 'background-color': hover ? '#3AA0F1' : '#42A5F5'}"
           class = "boutonDroite" 
           :disabled="!showTuPreferes"
+          id ="custom-disabled-droite"
         >
           <div class="tailleBoutons text-wrap" style="max-width: 32vw;" >{{ dilemme2 }}
           </div>
@@ -228,7 +230,14 @@ const socket = io("ws://localhost:3000");
       clickMode(_mode){
         this.mode=_mode;
         console.log(this.mode);
-       socket.emit("mode",this.mode);
+        socket.emit("mode",this.mode);
+        socket.emit("demandeInitiale","|||||");
+        socket.on("start", (args) => {
+          this.hello();
+          console.log(args);
+          this.string=args;
+          this.saveString(args);
+        });
       },
 
       destroyed(){
@@ -282,8 +291,6 @@ const socket = io("ws://localhost:3000");
   .tailleBoutons{ 
     font-size : 2vw;
   }
-  .TexteDilemme{
-  }
   .margeHaut{
     margin-top: 3vh;
   }
@@ -331,6 +338,12 @@ const socket = io("ws://localhost:3000");
   .rounded-card{
     border-radius: 9999px  ;
     overflow: hidden;
-  };
+  }
+  #custom-disabled-gauche.v-btn--disabled.theme--light {
+    background-color: #d9a6a6 !important;
+  }
+  #custom-disabled-droite.v-btn--disabled.theme--light {
+    background-color: #b8d1e6 !important;
+  }
 
 </style>

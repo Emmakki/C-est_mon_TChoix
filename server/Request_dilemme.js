@@ -14,7 +14,7 @@ exports.choixDilemme = function(dilprec){
                         let tab = [];
                         for(i=0;i<dil.length;i++){
                             if(dil[i].visible =="True" && precedent[0]!=dil[i].choix1 && precedent[1]!=dil[i].choix2) {
-                                total ++
+                                total ++;
                                 tab.push(i);
                             }
                         }
@@ -41,13 +41,16 @@ exports.choixDilemme = function(dilprec){
                         }
                         total = 0;
                         for(i=0;i<dil.length;i++){
-                            if(dil[i].jaime > 0.66*totj && dil[i].visible =="True" && precedent[0]!=dil[i].choix1 && precedent[1]!=dil[i].choix2) {
-                                total ++
+                            console.log(dil[i].jaime);
+                            if(dil[i].jaime > 0.66*totj/dil.length && dil[i].visible =="True" && precedent[0]!=dil[i].choix1 && precedent[1]!=dil[i].choix2) {
+                                console.log("if")
+                                total ++;
                                 tab.push(i);
                             }
                         }
-                        var alea = Math.floor(Math.random()*total);;
+                        var alea = Math.floor(Math.random()*total);
                         resolve(BDtoString(dil[tab[alea]]));
+                        console.log("test3");
                     } else {
                         resolve( "Ce mode n'existe pas");
                     }
