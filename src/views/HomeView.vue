@@ -45,20 +45,13 @@
             :class="{ 'on-hover': hover }"
             :height="tailleBoutons.gauche"
             :width="tailleBoutons.longueur" 
-            
             rounded
             :style="{ 'background-color': hover ? 'red' : '#E57373' }"
             class="boutonGauche"
             :disabled="!showTuPreferes"
             >
             <div class="tailleBoutons">
-              <v-card 
-              width="32vw"
-              class="align-center"
-              color = "transparent"
-              flat>
-                  {{ dilemme1 }}
-              </v-card>
+              {{ dilemme1 }}
             </div>
         </v-btn>
       </v-hover>
@@ -78,13 +71,7 @@
           :disabled="!showTuPreferes"
         >
           <div class="tailleBoutons">
-            <v-card 
-              width="32vw"
-              class="align-center"
-              color = "transparent"
-              flat>
-                {{ dilemme2 }}
-            </v-card>
+            {{ dilemme2 }}
           </div>
         </v-btn>
       </v-hover>
@@ -103,6 +90,8 @@
             icon
             class="decalage-droite"
             :ripple="false"
+            
+            
             color = "green darken-1"
         >
             <v-icon size="60px">
@@ -291,7 +280,6 @@ const socket = io("ws://localhost:3000");
   }
   .tailleBoutons{ 
     font-size : 3vw;
-    overflow-wrap:break-word;
   }
   .margeHaut{
     margin-top: 3vh;
