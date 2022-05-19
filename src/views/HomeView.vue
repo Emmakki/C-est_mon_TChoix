@@ -13,8 +13,7 @@
      <p class="TITRE" >C'est mon TChoix</p>
      </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn to="/propos" color="green lighten-4" x-large rounded v-show="showBouton">Proposition</v-btn>
-      <v-btn to="/" color="green lighten-4" x-large rounded v-show="!showBouton">Retour</v-btn>
+      <v-btn to="/propos" color="green lighten-4" x-large rounded>Proposition</v-btn>
     </v-toolbar>
   </header>
   </nav>
@@ -138,7 +137,6 @@ const socket = io("ws://localhost:3000");
           gauche: "9vh",
           droite: "21vh",
         },
-        showBouton:true,
         tailleMax : "45vh",
         showTuPreferes:true,
         mode:"alea",
@@ -255,6 +253,18 @@ const socket = io("ws://localhost:3000");
     font-weight: bold;
     
   }
+  
+.TITRE{
+  font-size:5vw;
+  font-weight: bold;
+}
+#transparant::before {
+   background-color: transparent !important;
+}
+.v-toolbar__title {
+    margin-bottom: -10px;
+}
+
   #suivant {
     font-size: 30px;
   }

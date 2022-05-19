@@ -1,6 +1,22 @@
 <template>
 <div>
-  <NavBar />
+  <nav>
+  <header>
+    <v-toolbar height="140" color="green lighten-2">
+    <v-btn  text to="/" class="font-weight-light" id="transparant" height="150" width="150">
+    <div>
+     <v-img alt="logo" height="140" max-width="150" src="../assets/TChoix.png" ></v-img>
+     </div>
+     </v-btn>
+     <v-spacer></v-spacer>
+     <v-toolbar-title>
+     <p class="TITRE" >C'est mon TChoix</p>
+     </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn to="/" color="green lighten-4" x-large rounded>Retour</v-btn>
+    </v-toolbar>
+  </header>
+  </nav>
   <v-stepper v-model="e1"
   width="600px"
   class="mx-auto my-12"
@@ -43,14 +59,12 @@
             <v-container>
       
           <v-text-field
-            v-model="first"
             label="Prénom"
             outlined
             
           ></v-text-field>
        
           <v-text-field
-            v-model="last"
             label="Nom"
             outlined
           ></v-text-field>
@@ -72,7 +86,7 @@
           class="mx-auto my-12"
           color="green lighten-4"
           height="200px"
-        ><v-form v-model="valid">
+        ><v-form>
                 <v-container>
       <v-textarea 
       
@@ -105,7 +119,7 @@
           color="green lighten-4"
           height="200px"
         >
-        <v-form v-model="valid">
+        <v-form >
                 <v-container>
           <v-textarea
       background-color="green lighten-4"
@@ -146,7 +160,6 @@
 </template>
 
 <script >
-  import NavBar from '@/components/NavBar.vue'
   import { io } from "socket.io-client";
   const socket = io("ws://localhost:3000");
   export default {
@@ -156,11 +169,7 @@
         timeout: 2000,
         Proposition1: '',
         Proposition2: '',
-        showBouton:false,
       }),
-    components: {
-      NavBar,
-    },
       methods: {
         async submit(){
           this.snackbar = true;
@@ -174,5 +183,16 @@
 .home {
     background-color: rgb(233, 255, 233) ;
   }
+.TITRE{
+  font-size:5vw;
+  font-weight: bold;
+}
+#transparant::before {
+   background-color: transparent !important;
+}
+.v-toolbar__title {
+    margin-bottom: -10px;
+}
+
   
 </style>
