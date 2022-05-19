@@ -21,6 +21,7 @@
       <p id="titre" 
         class="text-center"
         v-show="showTuPreferes">
+        
         Tu préfères ...
       </p> 
       <p id="titre" 
@@ -30,7 +31,7 @@
       </p>  
       <p id="titre" 
         class="text-center margePourcentageDroite"
-        v-show="!showTuPreferes"><v-spacer></v-spacer> <strong>{{pourcentageDroite}}</strong>
+        v-show="!showTuPreferes"><v-spacer></v-spacer> <strong><br/>{{pourcentageDroite}}</strong>
       </p>
     </v-row>
     <v-spacer></v-spacer> 
@@ -50,7 +51,8 @@
             :disabled="!showTuPreferes"
             >
             <div class="tailleBoutons">
-              {{ dilemme1 }}
+            <p class="text-wrap" style="max-width: 40rem;">
+              {{ dilemme1 }}</p>
             </div>
         </v-btn>
       </v-hover>
@@ -69,8 +71,7 @@
           class = "boutonDroite" 
           :disabled="!showTuPreferes"
         >
-          <div class="tailleBoutons">
-            {{ dilemme2 }}
+          <div class="tailleBoutons" ><p class="text-wrap" style="max-width: 40rem;">{{ dilemme2 }}</p>
           </div>
         </v-btn>
       </v-hover>
@@ -78,7 +79,7 @@
     <br/>
     <p id = "suivant"
       class = "text-center"
-      v-show="!showTuPreferes">Noter pour passer au suivant</p>
+      v-show="!showTuPreferes">Noter pour passer au suivant:</p>
     
     
     <div v-show="!showTuPreferes">
@@ -132,6 +133,7 @@ const socket = io("ws://localhost:3000");
           gauche: "45vh",
           droite: "45vh",
           longueur: "38%",
+
         },
         tailleBoutonsResultats: {
           gauche: "9vh",
@@ -278,7 +280,9 @@ const socket = io("ws://localhost:3000");
     margin-right: 2%;
   }
   .tailleBoutons{ 
-    font-size : 3vw;
+    font-size : 2vw;
+  }
+  .TexteDilemme{
   }
   .margeHaut{
     margin-top: 3vh;
