@@ -17,6 +17,7 @@
     </v-toolbar>
   </header>
   </nav>
+  <br/>
     <v-row align = "center" justify = "center">
       <p id="titre" 
         class="text-center"
@@ -31,7 +32,7 @@
       </p>  
       <p id="titre" 
         class="text-center margePourcentageDroite"
-        v-show="!showTuPreferes"><v-spacer></v-spacer> <strong><br/>{{pourcentageDroite}}</strong>
+        v-show="!showTuPreferes"><v-spacer></v-spacer> <strong>{{pourcentageDroite}}</strong>
       </p>
     </v-row>
     <v-spacer></v-spacer> 
@@ -50,9 +51,8 @@
             class="boutonGauche"
             :disabled="!showTuPreferes"
             >
-            <div class="tailleBoutons">
-            <p class="text-wrap" style="max-width: 40rem;">
-              {{ dilemme1 }}</p>
+            <div class="tailleBoutons text-wrap" style="max-width: 32vw;">
+              {{ dilemme1 }}
             </div>
         </v-btn>
       </v-hover>
@@ -71,7 +71,7 @@
           class = "boutonDroite" 
           :disabled="!showTuPreferes"
         >
-          <div class="tailleBoutons" ><p class="text-wrap" style="max-width: 40rem;">{{ dilemme2 }}</p>
+          <div class="tailleBoutons text-wrap" style="max-width: 32vw;" >{{ dilemme2 }}
           </div>
         </v-btn>
       </v-hover>
