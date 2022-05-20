@@ -55,7 +55,7 @@
           color="green lighten-4"
           height="170px"
           width="500">   
-          <v-form>
+          <v-form >
             <v-container>
       
           <v-text-field
@@ -119,7 +119,7 @@
           color="green lighten-4"
           height="200px"
         >
-        <v-form >
+        <v-form>
                 <v-container>
           <v-textarea
       background-color="green lighten-4"
@@ -141,10 +141,20 @@
             v-model="snackbar"
            :timeout="timeout">
            Proposition bien envoyée!
+           <template>
+        <v-btn
+          color="pink"
+          text
+          v-bind="attrs"
+          @click="snackbar = false;e1 = 1"
+        >
+          Close
+        </v-btn>
+      </template>
         </v-snackbar>
-
+        
         <v-btn text
-        @click="retour()">
+        @click="e1 = 2;snackbar = false">
           Retour
         </v-btn>
       </v-stepper-content>
@@ -157,6 +167,7 @@
   </v-row>-->
 </div> 
 
+
 </template>
 
 <script >
@@ -166,7 +177,7 @@
       data: () => ({
         snackbar: false,
         e1: 1,
-        timeout: 2000,
+        timeout: 10000,
         Proposition1: '',
         Proposition2: '',
       }),
@@ -178,11 +189,6 @@
           this.snackbar = true;
           console.log("test : ",this.Proposition1+"|"+this.Proposition2+"|0|0|True|0");
           socket.emit("prop",this.Proposition1+"|"+this.Proposition2+"|0|0|True|0");
-        },
-        async retour(){
-          this.e1 = 2;
-          console.log("test");
-          //rien ne s'affiche v-btn qui ne marche pas ?
         },
         
       },
