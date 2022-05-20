@@ -81,7 +81,7 @@
     <br/>
     <p id = "suivant"
       class = "text-center"
-      v-show="!showTuPreferes">Noter pour passer au suivant:</p>
+      v-show="!showTuPreferes">Noter ce dilemme pour passer au suivant</p>
     
     
     <div v-show="!showTuPreferes">
