@@ -81,36 +81,34 @@
     <br/>
     <p id = "suivant"
       class = "text-center"
-      v-show="!showTuPreferes">Noter pour passer au suivant:</p>
+      v-show="!showTuPreferes">Noter ce dilemme pour passer au suivant</p>
     
     
     <div v-show="!showTuPreferes">
       <div class="text-center" >
         <v-btn
             @click='clickLike("dislike")'
-            plain
-            icon
+            fab
+            x-large
             class="decalage-droite"
             :ripple="false"
-            
-            
-            color = "green darken-1"
+            color = "green lighten-2"
         >
-            <v-icon size="60px">
+            <v-icon>
                 mdi-thumb-down
             </v-icon>
         </v-btn>
 
         <v-btn
             @click='clickLike("like")'
-            plain
-            icon
+            fab
+            x-large
             class="decalage-gauche"
             :ripple="false" 
             
-            color = "green darken-1"
+            color = "green lighten-2"
         >
-            <v-icon size="60px">
+            <v-icon  >
                 mdi-thumb-up
             </v-icon>
         </v-btn>
@@ -135,7 +133,6 @@ const socket = io("ws://localhost:3000");
           gauche: "45vh",
           droite: "45vh",
           longueur: "38%",
-
         },
         tailleBoutonsResultats: {
           gauche: "9vh",
