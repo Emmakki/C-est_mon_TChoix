@@ -17,121 +17,56 @@
     </v-toolbar>
   </header>
   </nav>
-  <v-stepper v-model="e1"
-  width="600px"
-  class="mx-auto my-12"
-  >
-    <v-stepper-header>
-      <v-stepper-step
-        :complete="e1 > 1"
-        step="1"
-      color="green lighten-1"
-      >
-        Nom/Prénom
-      </v-stepper-step>
-
-      <v-divider></v-divider>
-
-      <v-stepper-step
-        :complete="e1 > 2"
-        step="2"
-        color="green lighten-1"
-      >
-        Dilemme 1
-      </v-stepper-step>
-
-      <v-divider></v-divider>
-
-      <v-stepper-step step="3"
-      color="green lighten-1">
-        Dilemme 2
-      </v-stepper-step>
-    </v-stepper-header>
-
-    <v-stepper-items>
-      <v-stepper-content step="1">
-        <v-card
-          class="mx-auto my-12"
-          color="green lighten-4"
-          height="170px"
-          width="500">   
-          <v-form >
-            <v-container>
-      
-          <v-text-field
-            label="Prénom"
-            outlined
-            
-          ></v-text-field>
-       
-          <v-text-field
-            label="Nom"
-            outlined
-          ></v-text-field>
-       
-    </v-container>
-  </v-form></v-card>
-
-        <v-btn
-          color="green lighten-4"
-          @click="e1 = 2"
-        >
-          Valider
-        </v-btn>
-
-      </v-stepper-content>
-
-      <v-stepper-content step="2">
-        <v-card
-          class="mx-auto my-12"
-          color="green lighten-4"
-          height="200px"
-        ><v-form>
-                <v-container>
-      <v-textarea 
-      
-      background-color="green lighten-4"
-      color="black"
-      label="Proposition n°1"
-      v-model="Proposition1"
-    ></v-textarea>
-              
-                </v-container>
-              </v-form>
-        </v-card>
-
-        <v-btn
-          color="green lighten-4"
-          @click="e1 = 3"
-        >
-          Valider
-        </v-btn>
-
-        <v-btn text
-        @click="e1 = 1">
-          Retour
-        </v-btn>
-      </v-stepper-content>
-
-      <v-stepper-content step="3">
-        <v-card
-          class="mx-auto my-12"
-          color="green lighten-4"
-          height="200px"
-        >
-        <v-form>
-                <v-container>
-          <v-textarea
-      background-color="green lighten-4"
-      color="black"
-      label="Proposition n°2"
-      v-model="Proposition2"
-    ></v-textarea>
-              
-                </v-container>
-              </v-form></v-card>
-
-        <v-btn
+  <v-card 
+   class="mx-auto my-12"
+  height="400px"
+  width="550px">
+    
+  <v-card 
+   class="mx-auto my-12"
+          height="380px"
+          width="500px"
+          flat>
+    
+  <v-form>   
+  <v-container
+  height="400px"
+  width="550px">
+    
+          
+                                <v-text-field
+                                
+                            background-color="green lighten-4"
+                                  label="Prénom"
+                                  outlined
+                                  
+                                ></v-text-field>
+                            
+                                <v-text-field
+                                
+                            background-color="green lighten-4"
+                                  label="Nom"
+                                  outlined
+                                ></v-text-field>
+                          
+                            <v-text-field
+                            
+                            background-color="green lighten-4"
+                            color="black"
+                            label="Proposition n°1"
+                            v-model="Proposition1"
+                            outlined
+                          ></v-text-field>
+                                    
+                              
+                                <v-text-field
+                            background-color="green lighten-4"
+                            color="black"
+                            label="Proposition n°2"
+                            v-model="Proposition2"
+                            outlined
+                          ></v-text-field>
+                         <v-btn
           color="green lighten-4"
           @click="submit()"
         >
@@ -146,20 +81,21 @@
           color="pink"
           text
           v-bind="attrs"
-          @click="snackbar = false;e1 = 1"
+          @click="snackbar = false"
         >
           Close
         </v-btn>
       </template>
         </v-snackbar>
-        
-        <v-btn text
-        @click="e1 = 2;snackbar = false">
-          Retour
-        </v-btn>
-      </v-stepper-content>
-    </v-stepper-items>
-  </v-stepper>
+             
+  </v-container>          
+          
+              </v-form> 
+             </v-card>
+             
+  </v-card>
+
+       
  <!--<v-row align="center" justify="space-around">
     <v-btn to="/" icon color="green lighten-1">
     <v-icon size="75px">mdi-home</v-icon>
@@ -212,6 +148,8 @@
 .v-toolbar__title {
     margin-bottom: -10px;
 }
-
+.card{
+  border-radius: 10px
+}
   
 </style>
